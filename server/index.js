@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 
 let app = express();
 
-app.use(express.static(__dirname + '/../client/main/'), bodyparser());
+app.use(express.static(__dirname + '/../client/public/'), bodyparser());
 
 let port = 3000;
 
