@@ -16,6 +16,3 @@
 .env.production.local
 
 npm-debug.log*
-
-# all build css files
-src/**/*.css
