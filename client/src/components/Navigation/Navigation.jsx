@@ -1,39 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './navigation.css';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
-class Navigation extends React.Component {
-
-  render() {
-    return (
-
-        <div id="sidebar-wrapper">
-         <ul className="sidebar-nav">
-
-           <li className="sidebar-brand">
-              <Link to='/home'>JobSeekrs</Link>
-           </li>
-           <li>
-
-         </li>
-           <li>
-              <Link to='/search'>Search</Link>
-           </li>
-           <li>
-              <Link to='/enter-a-job'>Enter a Job</Link>
-           </li>
-           <li>
-           </li>
-
-       </ul>
-       </div>
 
 
-    );
-  }
-}
-
-
-
+const Navigation = () => (
+  <div id="sidebar-wrapper">
+    <ul className="sidebar-nav">
+      <li className="sidebar-brand">
+        <Link to="/home" href="/home">JobSeekrs</Link>
+      </li>
+      <li>
+        <Link to="/search" href="/search">Search</Link>
+      </li>
+      <li>
+        <Link to="/enter-a-job" href="/enter-a-job">Enter a Job</Link>
+      </li>
+    </ul>
+  </div>
+);
 
 export default Navigation;
