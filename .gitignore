@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # dependencies
 /node_modules
 
@@ -19,3 +20,7 @@ npm-debug.log*
 
 # all build css files
 src/**/*.css
+=======
+/node_modules
+/mockups
+>>>>>>> nav header set up properly

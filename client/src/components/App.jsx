@@ -28,14 +28,21 @@ class App extends React.Component {
           <Navigation />
           <div id="page-content-wrapper">
             <div className="container-fluid">
-              <button
-                className="btn btn-secondary"
-                id="menu-toggle"
-                onClick={this.toggleClass}
-              >
-              Toggle Menu
-              </button>
-              <h3>Your Name</h3>
+              <div className="row">
+                <div className="col-md-4">
+                  <button
+                    className="btn btn-secondary"
+                    id="menu-toggle"
+                    onClick={this.toggleClass}
+                  >
+                  Toggle Menu
+                  </button>
+                </div>
+                <div className="offset-md-1 col-md-7">
+                  <h3>Your Name</h3>
+                </div>
+
+              </div>
               <Switch>
                 <Route path="/home" component={home} />
                 <Route path="/enter-a-job" component={manual} />

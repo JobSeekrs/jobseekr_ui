@@ -1,8 +1,8 @@
 import React from 'react';
 
 const search = () => (
-  <div>
-     Search Stuff
+  <div className="container">
+    Search Stuff
   </div>
 );
 
