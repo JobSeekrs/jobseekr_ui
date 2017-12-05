@@ -1,12 +1,14 @@
-const express = require('express');
-const bodyparser = require('body-parser');
+import express from 'express';
+import bodyparser from 'body-parser';
+import path from 'path';
+import dotenv from 'dotenv';
 
-let app = express();
+dotenv.config();
+const app = express();
 
-app.use(express.static(__dirname + '/../client/public/'), bodyparser());
+app.use(express.static(path.join(__dirname, '/../client/public/'), bodyparser()));
 
-let port = 3000;
+const port = process.env.PORT;
 
-app.listen(port, function() {
-  console.log('listening to port', port);
-});
+app.listen(port, () =>
+  console.log('listening to port', port));
