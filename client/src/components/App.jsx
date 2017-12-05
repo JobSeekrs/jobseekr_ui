@@ -28,8 +28,8 @@ class App extends React.Component {
           <Navigation />
           <div id="page-content-wrapper">
             <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-4">
+              <div className="row no-gutters">
+                <div className="col-md-3">
                   <button
                     className="btn btn-secondary"
                     id="menu-toggle"
@@ -38,10 +38,9 @@ class App extends React.Component {
                   Toggle Menu
                   </button>
                 </div>
-                <div className="offset-md-1 col-md-7">
+                <div className="offset-md-2 col-md-7">
                   <h3>Your Name</h3>
                 </div>
-
               </div>
               <Switch>
                 <Route path="/home" component={home} />
