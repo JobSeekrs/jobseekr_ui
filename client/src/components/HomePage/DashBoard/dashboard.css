@@ -1,0 +1,50 @@
+.push-top{
+    margin-top:50px;
+}
+
+.card-wrapper{
+    min-width:100px;
+    min-height:20px;
+    border:1px solid #bbb;
+    border-radius:2px;
+}
+
+.card-inner{
+    padding-top: 15px;
+}
+
+.job_company, .job_title, .original_job_url, .personal_rating{
+    margin-left:15px;
+}
+
+.job_company{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+}
+
+.job_title{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;  
+    margin-bottom:0px; 
+}
+
+.last_applied{
+    border-top:1px solid #bbb;
+    padding: 5px 15px 5px 15px;
+    font-style: italic;
+    font-size:13px;
+}
+
+.original_job_url{
+    font-family: 'Open Sans', sans-serif;
+    font-size:14px;
+}
+
+.original_job_url:hover{
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.personal_rating{
+    font-size:14px;
+}
