@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { Switch, Link, Route } from 'react-router-dom';
+// import searchResults from './searchResults';
+// import searchJobDetails from './searchJobDetails';
 
 class search extends React.Component {
   constructor(props) {
@@ -18,7 +21,8 @@ class search extends React.Component {
 
   clicked() {
     const context = this;
-    axios.post('http://localhost:3200/github', {
+    console.log(this.state.value);
+    axios.post('http://localhost:3100/github', {
       searched: context.state.value,
     }).then(function(response) {
       context.props.searchJobs(response.data);
@@ -30,14 +34,10 @@ class search extends React.Component {
       <div className="container">
         <input type="text" value={this.state.value} onChange={this.handleChange} />
         <button onClick={this.clicked}>Click this to test github api</button>
-        {this.props.searchResults.map((job, i) => (
-          <div>
-            <h4 key={i}>{job.title}</h4>
-            <h6 key={i}>{job.company}</h6>
-            <h6 key={i}>{job.location}</h6>
-            <h6 key={i}>{job.company_url}</h6>
-          </div>
-        ))}
+        {/* <Switch>
+          <Route path="/" component={searchResults} />
+          <Route path="/jobdetails" component={searchJobDetails} />
+        </Switch> */}
       </div>
     );
   }
