@@ -2,6 +2,7 @@ import React from 'react';
 
 const applied = () => (
   <div className="container">
+    <h2>applied</h2>
     <table className="table">
       <thead>
         <tr>

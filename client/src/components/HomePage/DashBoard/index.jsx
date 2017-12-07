@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import './dashboard.css';
+import cards from './cards';
 import willApply from './willApply';
 import applied from './applied';
 import followUp from './followUp';
@@ -43,22 +44,9 @@ class Home extends React.Component {
           <Route path="/home/will-apply" component={willApply} />
           <Route path="/home/applied" component={applied} />
           <Route path="/home/follow-up" component={followUp} />
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card-wrapper">
-                <div className="card-inner">
-                  <h6 className="job_company">Google</h6>
-                  <h6 className="job_title">Full-Stack Developer</h6>
-                  <a className="original_job_url" href="https://www.google.com">Original Posting</a>
-                  <p className="personal_rating">Rating: 1</p>
-                  <div className="last_applied">
-                    <h6 className="last_applied_text">6 months ago</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Route path="/home" component={cards} />
         </Switch>
+
       </div>
     );
   }

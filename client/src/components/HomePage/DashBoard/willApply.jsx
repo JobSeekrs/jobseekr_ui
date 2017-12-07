@@ -2,6 +2,7 @@ import React from 'react';
 
 const willApply = () => (
   <div className="container">
+  <h2>Will Apply</h2>
     <table className="table">
       <thead>
         <tr>

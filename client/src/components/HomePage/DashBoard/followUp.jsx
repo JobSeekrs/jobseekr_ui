@@ -2,6 +2,7 @@ import React from 'react';
 
 const followUp = () => (
   <div className="container">
+    <h2>Follow Up</h2>
     <table className="table">
       <thead>
         <tr>
