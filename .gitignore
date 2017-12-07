@@ -12,6 +12,3 @@
 */.DS_Store
 
 npm-debug.log*
-
-# all build css files
-src/**/*.css
