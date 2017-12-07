@@ -9,7 +9,7 @@ const willApply = () => (
           <th>Job Title</th>
           <th>Job Link</th>
           <th>Job Deadline</th>
-          <th>Job Details</th>
+          <th>Expanded Job Details</th>
           <th>Personal Rating</th>
         </tr>
       </thead>
@@ -19,7 +19,7 @@ const willApply = () => (
           <td>Full-Stack Developer</td>
           <td>url to job</td>
           <td>10/10/25</td>
-          <td>Expanded Details View</td>
+          <td>Details View</td>
           <td>3</td>
         </tr>
       </tbody>
