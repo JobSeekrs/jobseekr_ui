@@ -1,7 +1,10 @@
-// import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
+import searchJobsReducer from './searchJobsReducer';
+import searchJobDetailsReducer from './searchJobDetailsReducer';
 
-// let allReducers = combineReducers({
+const allReducers = combineReducers({
+  searchResults: searchJobsReducer,
+  searchJobDetails: searchJobDetailsReducer,
+});
 
-// });
-
-// export default allReducers;
+export default allReducers;

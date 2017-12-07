@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
-import './Navigation/navigation.css';
 import manual from './HomePage/Jobs/manual';
-import search from './HomePage/Jobs/search';
+import search from '../containers/searchContainer';
 import home from './HomePage/DashBoard/index';
 
 

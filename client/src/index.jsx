@@ -5,11 +5,12 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
 import allReducers from './reducers/allReducers';
-// import allReducers from './reducers/allReducers';
-// let store = createStore(allReducers);
+
+const store = createStore(allReducers);
+
 ReactDOM.render(
   <BrowserRouter>
-    <Provider>
+    <Provider store={store}>
       <App />
     </Provider>
   </BrowserRouter>, 
