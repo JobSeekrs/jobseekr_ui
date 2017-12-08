@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import './dashboard.css';
-import cards from './cards';
+import Cards from './cards';
 import willApply from './willApply';
 import applied from './applied';
 import followUp from './followUp';
@@ -11,13 +11,20 @@ import followUp from './followUp';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      jobs: [],
+    };
   }
 
   componentDidMount() {
-    axios.get('/getJobs')
-      .then(res => this.setState({ posts: res.data }))
+    axios.get('http://localhost:3002/job')
+      .then(res => {
+        this.setState({ jobs: res.data.jobs });
+        console.log('from component mount after axios: ', this.state.jobs);
+      })
       .catch(err => console.log(err));
   }
+
 
   render() {
     return (
@@ -44,7 +51,7 @@ class Home extends React.Component {
           <Route path="/home/will-apply" component={willApply} />
           <Route path="/home/applied" component={applied} />
           <Route path="/home/follow-up" component={followUp} />
-          <Route path="/home" component={cards} />
+          <Route path="/home" info={this.state.jobs} render={()=><Cards info={this.state.jobs}/>}/>
         </Switch>
 
       </div>
