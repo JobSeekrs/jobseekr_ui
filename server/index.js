@@ -16,6 +16,11 @@ app.use(function(req, res, next) {
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/public/index.html'));
 });
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/public/index.html'));
+});
+
 const port = process.env.PORT;
 
 app.listen(port, () =>
