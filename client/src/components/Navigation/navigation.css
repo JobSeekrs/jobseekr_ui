@@ -93,6 +93,14 @@
     background: none;
   }
  
+.center {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
   @media(min-width:768px) {
     #wrapper {
       padding-left: 0;
