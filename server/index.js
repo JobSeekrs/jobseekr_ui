@@ -7,7 +7,9 @@ dotenv.config();
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../client/public/'), bodyparser()));
-
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/public/index.html'));
+});
 const port = process.env.PORT;
 
 app.listen(port, () =>

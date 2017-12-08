@@ -33,4 +33,13 @@ webpackConfig.module.loaders.push({
   options: {}  
 });
 
+webpackConfig.module.loaders.push({
+  test: /\.svg$/,
+  use: [{
+    loader: 'babel-loader'
+  }, {
+    loader: 'react-svg-loader'
+  }]
+});
+
 module.exports = webpackConfig;
