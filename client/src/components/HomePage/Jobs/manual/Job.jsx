@@ -66,7 +66,7 @@ const job = (props) => {
           onChange={props.handleUserInput}
         />
       </div>
-      <div>{props.jobDescriptionCharLeft} characters left</div>
+      <small>{props.jobDescriptionCharLeft} characters left</small>
       <div className="form-group">
         <label>Source</label>
         <input
@@ -104,7 +104,7 @@ const job = (props) => {
           onChange={props.handleUserInput}
         />
       </div>
-      <div>{props.jobNotesCharLeft} characters left</div>
+      <small>{props.jobNotesCharLeft} characters left</small>
     </div>
   );
 };

@@ -148,7 +148,7 @@ const company = (props) => {
           onChange={props.handleUserInput}
         />
       </div>
-      <div>{props.companyDescriptionCharLeft} characters left</div>
+      <small>{props.companyDescriptionCharLeft} characters left</small>
     </div>
   );
 };
