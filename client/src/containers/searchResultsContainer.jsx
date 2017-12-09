@@ -6,6 +6,7 @@ import searchResults from '../components/HomePage/Jobs/searchResults';
 function mapStateToProps(state) {
   return {
     searchResults: state.searchResults,
+    savedSearchedJobs: state.savedSearchedJobs,
   };
 }
 

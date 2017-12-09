@@ -14,6 +14,7 @@ class search extends React.Component {
       redirect: false,
     };
     this.clicked = this.clicked.bind(this);
+    this.saveJobs = this.saveJobs.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyPressDetails = this.handleKeyPressDetails.bind(this);
@@ -35,6 +36,10 @@ class search extends React.Component {
     this.setState({
       value: event.target.value,
     });
+  }
+
+  saveJobs() {
+    console.log(this.props.savedSearchedJobs);
   }
 
   clicked() {
@@ -68,6 +73,7 @@ class search extends React.Component {
       });
     }
   }
+
   render() {
     return (
       <div className="container">
@@ -75,7 +81,7 @@ class search extends React.Component {
           {this.state.toggle === false ?
           (
             <Switch>
-              <Route exact path="/search" render={(props) => <SearchResults {...props} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
+              <Route exact path="/search" render={(props) => <SearchResults {...props} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked} saveJobs={this.saveJobs}/>} />
               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
             </Switch>
           ) :
