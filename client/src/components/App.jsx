@@ -49,7 +49,10 @@ class App extends React.Component {
                 <Route path="/search" component={search} />
                 <Route path="/login" component={login} />
                 <Route path="/signup" component={signup} />
+<<<<<<< HEAD
                 <Route path="/job-detail" component={JobDetail} />
+=======
+>>>>>>> login and signup skeleton for auth
               </Switch>
             </div>
           </div>
