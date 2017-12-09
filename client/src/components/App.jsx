@@ -2,14 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual';
-<<<<<<< HEAD
 import search from '../containers/searchContainer';
-import home from './HomePage/DashBoard/index';
-
-=======
-import search from './HomePage/Jobs/search';
 import Home from './HomePage/DashBoard/index';
->>>>>>> routing for home page set up
+
 
 class App extends React.Component {
   constructor(props) {

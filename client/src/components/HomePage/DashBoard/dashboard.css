@@ -8,9 +8,9 @@
 
 .card-wrapper {
     min-width:100px;
-    min-height:20px;
     border:1px solid #bbb;
     border-radius:2px;
+    margin-bottom:20px;
 }
 
 .card-inner {
@@ -18,7 +18,7 @@
     overflow: auto;
 }
 
-.job_company, .job_title, .original_job_url, .personal_rating {
+.job_company, .job_title, .original_job_url, .personal_rating, .job_status, .job_deadline {
     margin-left:25px;
 }
 
@@ -45,9 +45,13 @@
     float:right;
 }
 
-.original_job_url {
+.original_job_url, .personal_rating, .job_status, .job_deadline {
     font-family: 'Open Sans', sans-serif;
     font-size:14px;
+}
+
+.personal_rating, .job_status, job_deadline{
+    margin-bottom:0px;
 }
 
 .original_job_url:hover {
@@ -55,9 +59,6 @@
     cursor:pointer;
 }
 
-.personal_rating {
-    font-size:14px;
-}
 
 
 .job-tab{
