@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const willApply = (props) => {
   return (
@@ -22,7 +23,9 @@ const willApply = (props) => {
               return (
                 <tr key={job.id}>
                   <td>{job.companyId}</td>
-                  <td>{job.name}</td>
+                  <Link to="/job-detail" href="/job-detail">
+                    <td>{job.name}</td>
+                  </Link>
                   <td> <a href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a></td>
                   <td>{job.priority}</td>
                   <td>{job.status}</td>

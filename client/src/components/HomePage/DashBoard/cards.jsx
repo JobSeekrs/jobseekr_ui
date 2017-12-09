@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Cards = (props) => {
 
@@ -12,7 +13,9 @@ const Cards = (props) => {
               <div className="card-wrapper" key={job.id}>
                 <div className="card-inner">
                   <h6 className="job_company">{job.companyId}</h6>
-                  <h6 className="job_title">{job.name}</h6>
+                  <Link to="/job-detail" href="/job-detail" job={job}>
+                    <h6 className="job_title">{job.name}</h6>
+                  </Link>
                   <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
                   <p className="personal_rating">Rating: {job.priority}</p>
                   <p className="job_status">Status: {job.status}</p>
@@ -34,7 +37,9 @@ const Cards = (props) => {
               <div className="card-wrapper" key={job.id}>
                 <div className="card-inner">
                   <h6 className="job_company">{job.companyId}</h6>
-                  <h6 className="job_title">{job.name}</h6>
+                  <Link to="/job-detail" href="/job-detail">
+                    <h6 className="job_title">{job.name}</h6>
+                  </Link>
                   <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
                   <p className="personal_rating">Rating: {job.priority}</p>
                   <p className="job_status">Status: {job.status}</p>
@@ -56,7 +61,9 @@ const Cards = (props) => {
               <div className="card-wrapper" key={job.id}>
                 <div className="card-inner">
                   <h6 className="job_company">{job.companyId}</h6>
-                  <h6 className="job_title">{job.name}</h6>
+                  <Link to="/job-detail" href="/job-detail">
+                    <h6 className="job_title">{job.name}</h6>
+                  </Link>
                   <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
                   <p className="personal_rating">Rating: {job.priority}</p>
                   <p className="job_status">Status: {job.status}</p>
