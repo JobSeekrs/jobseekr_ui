@@ -44,7 +44,6 @@ class search extends React.Component {
 
   clicked() {
     const context = this;
-<<<<<<< HEAD
     if (this.state.redirect === false) {
       this.setState({
         toggle: true,
@@ -73,13 +72,6 @@ class search extends React.Component {
         });
       });
     }
-=======
-    axios.post('http://localhost:3002/github', {
-      searched: context.state.value,
-    }).then(function(response) {
-      context.props.searchJobs(response.data);
-    });
->>>>>>> [add]
   }
 
   render() {
