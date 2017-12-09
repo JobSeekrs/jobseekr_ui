@@ -110,7 +110,6 @@ class Manual extends Component {
     });
     console.log(this.state.jobDeadline._d)
   }
-
   removeModal() {
     document.getElementbyClassName('modal-backdrop fade show').remove();
   }
