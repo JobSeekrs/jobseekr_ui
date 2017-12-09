@@ -89,7 +89,7 @@ const job = (props) => {
           name="jobLink"
           value={props.jobLink}
           onChange={props.handleUserInput}
-        />1
+        />
       </div>
       <div className="form-group">
         <label>Notes</label>
