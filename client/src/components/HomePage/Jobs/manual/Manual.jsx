@@ -265,7 +265,6 @@ class Manual extends Component {
             className="btn btn-primary"
             data-toggle="modal"
             data-target="#myModal"
-            onClick={this.jobFormSubmit}
           >Submit
           </button>
           <div className="modal fade" id="myModal" role="dialog">
