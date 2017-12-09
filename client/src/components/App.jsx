@@ -1,10 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
-import manual from './HomePage/Jobs/manual';
+import manual from './HomePage/Jobs/manual/Manual';
 import search from '../containers/searchContainer';
 import Home from './HomePage/DashBoard/index';
-
 
 class App extends React.Component {
   constructor(props) {
