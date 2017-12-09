@@ -4,12 +4,9 @@ import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual/Manual';
 import search from '../containers/searchContainer';
 import Home from './HomePage/DashBoard/index';
-<<<<<<< HEAD
 import login from './Auth/login';
 import signup from './Auth/signup';
-=======
 import JobDetail from './HomePage/DashBoard/JobDescription/index';
->>>>>>> [add]
 
 class App extends React.Component {
   constructor(props) {
@@ -50,12 +47,9 @@ class App extends React.Component {
                 <Route path="/home" component={Home} />
                 <Route path="/enter-a-job" component={manual} />
                 <Route path="/search" component={search} />
-<<<<<<< HEAD
                 <Route path="/login" component={login} />
                 <Route path="/signup" component={signup} />
-=======
                 <Route path="/job-detail" component={JobDetail} />
->>>>>>> [add]
               </Switch>
             </div>
           </div>

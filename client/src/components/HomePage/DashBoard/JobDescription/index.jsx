@@ -7,12 +7,8 @@ import Notes from './notes';
 import Notifications from './notifications';
 
 class JobDetail extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    console.log(props);
+  constructor() {
+    super()
   }
 
   render() {
