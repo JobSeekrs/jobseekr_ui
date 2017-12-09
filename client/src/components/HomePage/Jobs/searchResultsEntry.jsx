@@ -7,7 +7,7 @@ class searchResultsEntry extends React.Component {
     this.showDetails = this.showDetails.bind(this);
   }
 
-  showDetails () {
+  showDetails() {
     this.props.showJobDetails(this.props.job);
   }
 
@@ -27,6 +27,6 @@ class searchResultsEntry extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default searchResultsEntry;

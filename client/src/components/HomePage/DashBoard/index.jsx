@@ -18,7 +18,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios.get('http://localhost:3002/job')
-      .then(res => {
+      .then((res) => {
         this.setState({ jobs: res.data });
         console.log('from component mount after axios: ', this.state);
       })
@@ -48,12 +48,11 @@ class Home extends React.Component {
         </div>
 
         <Switch>
-          <Route path="/home/will-apply" render={()=><WillApply info={this.state.jobs}/>} />
-          <Route path="/home/applied" render={()=><Applied info={this.state.jobs}/>} />
-          <Route path="/home/follow-up" render={()=><FollowUp info={this.state.jobs}/>} />
-          <Route path="/home" info={this.state.jobs} render={()=><Cards info={this.state.jobs}/>}/>
+          <Route path="/home/will-apply" render={() => <WillApply info={this.state.jobs} />} />
+          <Route path="/home/applied" render={() => <Applied info={this.state.jobs} />} />
+          <Route path="/home/follow-up" render={() => <FollowUp info={this.state.jobs} />} />
+          <Route path="/home" info={this.state.jobs} render={() => <Cards info={this.state.jobs} />} />
         </Switch>
-
       </div>
     );
   }
