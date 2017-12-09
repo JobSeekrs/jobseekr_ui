@@ -48,17 +48,10 @@ class Home extends React.Component {
         </div>
 
         <Switch>
-<<<<<<< HEAD
           <Route path="/home/will-apply" render={() => <WillApply info={this.state.jobs} />} />
           <Route path="/home/applied" render={() => <Applied info={this.state.jobs} />} />
           <Route path="/home/follow-up" render={() => <FollowUp info={this.state.jobs} />} />
           <Route path="/home" info={this.state.jobs} render={() => <Cards info={this.state.jobs} />} />
-=======
-          <Route path="/home/will-apply" render={()=><WillApply info={this.state.jobs}/>} />
-          <Route path="/home/applied" render={()=><Applied info={this.state.jobs}/>} />
-          <Route path="/home/follow-up" render={()=><FollowUp info= {this.state.jobs}/>} />
-          <Route path="/home" info={this.state.jobs} render={()=><Cards info={this.state.jobs}/>}/>
->>>>>>> login and signup skeleton for auth
         </Switch>
       </div>
     );
