@@ -18,6 +18,12 @@ const Navigation = () => (
       <li>
         <Link to="/enter-a-job" href="/enter-a-job">Enter a Job</Link>
       </li>
+      <li>
+        <Link to="/login" href="/login">Login</Link>
+      </li>
+      <li>
+        <Link to="/signup" href="/signup">Sign Up</Link>
+      </li>
     </ul>
   </div>
 );

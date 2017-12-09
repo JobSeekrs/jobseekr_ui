@@ -11,6 +11,7 @@
     border:1px solid #bbb;
     border-radius:2px;
     margin-bottom:20px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
 .card-inner {
@@ -42,7 +43,6 @@
     padding: 5px 15px 0px 15px;
     font-style: italic;
     font-size:13px;
-    float:right;
 }
 
 .original_job_url, .personal_rating, .job_status, .job_deadline {
@@ -63,4 +63,32 @@
 
 .job-tab{
     text-align: center;
+}
+
+.c-gray{
+    background-color:#ababab;
+}
+
+.c-salmon{
+    background-color:#ec6865;
+}
+
+.c-purple{
+    background-color:#cf00e8;
+}
+
+.c-yellow{
+    background-color:#ffe002;
+}
+
+.c-green{
+    background-color:#02c32b;
+}
+
+.c-orange{
+    background-color:#f78900;
+}
+
+.c-lightblue{
+    background-color:#00d5f7;
 }
