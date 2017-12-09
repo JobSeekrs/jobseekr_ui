@@ -71,16 +71,18 @@ class search extends React.Component {
   render() {
     return (
       <div className="container">
-        <div>    
-          {this.state.toggle === false ? (
+        <div>
+          {this.state.toggle === false ?
+          (
             <Switch>
               <Route exact path="/search" render={(props) => <SearchResults {...props} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
             </Switch>
-          ) : <div className="center">
-            <Ripple />
-            {this.state.redirect === true ? (<Redirect to="/search/" />) : null}
-          </div>
+          ) :
+            <div className="center">
+              <Ripple />
+              {this.state.redirect === true ? (<Redirect to="/search/" />) : null}
+            </div>
           }
         </div>
       </div>
