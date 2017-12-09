@@ -4,6 +4,8 @@ import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual/Manual';
 import search from '../containers/searchContainer';
 import Home from './HomePage/DashBoard/index';
+import login from './Auth/login';
+import signup from './Auth/signup';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +46,8 @@ class App extends React.Component {
                 <Route path="/home" component={Home} />
                 <Route path="/enter-a-job" component={manual} />
                 <Route path="/search" component={search} />
+                <Route path="/login" component={login} />
+                <Route path="/signup" component={signup} />
               </Switch>
             </div>
           </div>
