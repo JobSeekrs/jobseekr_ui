@@ -6,6 +6,7 @@ import search from '../containers/searchContainer';
 import Home from './HomePage/DashBoard/index';
 import login from './Auth/login';
 import signup from './Auth/signup';
+import JobDetail from './HomePage/DashBoard/JobDescription/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends React.Component {
                 <Route path="/search" component={search} />
                 <Route path="/login" component={login} />
                 <Route path="/signup" component={signup} />
+                <Route path="/job-detail" component={JobDetail} />
               </Switch>
             </div>
           </div>
