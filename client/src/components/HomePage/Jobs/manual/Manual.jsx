@@ -108,9 +108,7 @@ class Manual extends Component {
   }
 
   removeModal() {
-    console.log('im clicking');
     document.getElementbyClassName('modal-backdrop fade show').remove();
-    console.log(this.state);
   }
 
   jobFormSubmit(e) {
