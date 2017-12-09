@@ -1,8 +1,8 @@
 import React from 'react';
 
-const applied = (props) => (
+const willApply = (props) => (
   <div className="container">
-    <h2>Applied</h2>
+    <h2>Will Apply</h2>
     <table className="table">
       <thead>
         <tr>
@@ -16,7 +16,7 @@ const applied = (props) => (
         </tr>
       </thead>
       <tbody>
-      {props.info.map((job) => { if(job.status === "Applied"){
+      {props.info.map((job) => { if(job.status === "Will Apply"){
         return (
         <tr key={job.id}>
             <td>{job.companyId}</td>
@@ -34,4 +34,4 @@ const applied = (props) => (
   </div>
 );
 
-export default applied;
+export default willApply;

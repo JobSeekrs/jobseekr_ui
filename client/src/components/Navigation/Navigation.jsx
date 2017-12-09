@@ -10,6 +10,9 @@ const Navigation = () => (
         <Link to="/home" href="/home">JobSeekrs</Link>
       </li>
       <li>
+        <Link to="/home" href="/home">Dashboard</Link>
+      </li>
+      <li>
         <Link to="/search" href="/search">Search</Link>
       </li>
       <li>

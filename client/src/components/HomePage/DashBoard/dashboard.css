@@ -1,0 +1,66 @@
+.push-top {
+    margin-top:50px;
+}
+
+.push-bottom {
+    margin-bottom:50px;
+}
+
+.card-wrapper {
+    min-width:100px;
+    border:1px solid #bbb;
+    border-radius:2px;
+    margin-bottom:20px;
+}
+
+.card-inner {
+    padding-top: 15px;
+    overflow: auto;
+}
+
+.job_company, .job_title, .original_job_url, .personal_rating, .job_status, .job_deadline {
+    margin-left:25px;
+}
+
+.job_company {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+}
+
+.job_title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;  
+    margin-bottom:0px; 
+}
+
+.last_applied {
+    border-top:1px solid #bbb;
+    width:100%;
+}
+
+.last_applied_text {
+    padding: 5px 15px 0px 15px;
+    font-style: italic;
+    font-size:13px;
+    float:right;
+}
+
+.original_job_url, .personal_rating, .job_status, .job_deadline {
+    font-family: 'Open Sans', sans-serif;
+    font-size:14px;
+}
+
+.personal_rating, .job_status, job_deadline{
+    margin-bottom:0px;
+}
+
+.original_job_url:hover {
+    text-decoration:none;
+    cursor:pointer;
+}
+
+
+
+.job-tab{
+    text-align: center;
+}

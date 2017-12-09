@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual';
 import search from '../containers/searchContainer';
-import home from './HomePage/DashBoard/index';
+import Home from './HomePage/DashBoard/index';
 
 
 class App extends React.Component {
@@ -42,7 +42,7 @@ class App extends React.Component {
                 </div>
               </div>
               <Switch>
-                <Route path="/home" component={home} />
+                <Route path="/home" component={Home} />
                 <Route path="/enter-a-job" component={manual} />
                 <Route path="/search" component={search} />
               </Switch>
