@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import searchResultsEntry from '../../components/HomePage/Jobs/Search/searchResultsEntry';
 import showJobDetails from '../../actions/jobDetails';
+import saveOrDeleteSearchedJobs from '../../actions/saveSearchedJobs';
 
 function mapStateToProps (state) {
   return {

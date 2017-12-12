@@ -4,7 +4,7 @@ const savedSearchedJobsReducer = (state = [], action) => {
     savedJobs.push(action.payload[0]);
     return savedJobs;
   }
-  if (action.type === "ALREADY_SAVED") {
+  if (action.type === "ALREADY_SAVED_OR_DELETE") {
     return action.payload;
   }
   return state;

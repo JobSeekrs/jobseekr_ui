@@ -38,6 +38,15 @@ class search extends React.Component {
     });
   }
 
+  saveOrDeleteJob (job, checked, checkbox) {
+    job.checkbox = checkbox;
+    job.checked = checked;
+    const savedJobs = {
+      jobs: this.props.savedSearchedJobs,
+    };
+    this.props.saveOrDeleteSearchedJobs(job, savedJobs.jobs);
+  }
+
   clicked() {
     const context = this;
     if (this.state.redirect === false) {
@@ -77,7 +86,7 @@ class search extends React.Component {
           {this.state.toggle === false ?
           (
             <Switch>
-              <Route exact path="/search" render={(props) => <SearchResults {...props} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
+              <Route exact path="/search" render={(props) => <SearchResults {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
             </Switch>
           ) :

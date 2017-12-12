@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import search from '../../components/HomePage/Jobs/Search/search';
 import searchJobs from '../../actions/searchJobs';
-import savedSearchedJobs from '../../actions/saveSearchedJobs';
+import saveOrDeleteSearchedJobs from '../../actions/saveSearchedJobs';
 
 function mapStateToProps(state) {
   return {
@@ -14,6 +14,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     searchJobs: searchJobs,
+    saveOrDeleteSearchedJobs: saveOrDeleteSearchedJobs
   }, dispatch);
 }
 
