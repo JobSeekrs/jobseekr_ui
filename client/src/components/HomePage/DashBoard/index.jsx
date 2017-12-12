@@ -14,17 +14,57 @@ class Home extends React.Component {
     this.state = {
       jobs: [],
     };
+    // this.dateHandler = this.dateHandler.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3002/job')
+    axios.get('http://localhost:3002/dashboard')
       .then((res) => {
+        console.log('dashboard:', res.data)
         this.setState({ jobs: res.data });
         console.log('from component mount after axios: ', this.state);
       })
       .catch(err => console.log(err));
   }
 
+  // dateHandler(dateString) {
+  //   let temp = dateString.split('T');
+  //   let date = temp[0];
+  //   let dateSplit = date.split('-');
+  //   let format = dateSplit[2] + '-' + dateSplit[1] + '-' + dateSplit[0];
+  //   var d = new Date();
+  //   // this.monthHandler = monthHandler.bind(this);
+
+  //   function monthHandler() {
+  //     if( d.getMonth() < parseInt(dateSplit[2]) ){
+  //       var counter = 0;
+  //       var temp = parseInt(dateSplit[2]); 
+  //       while (temp < 13){
+  //         temp++;
+  //       }
+  //       temp += d.getMonth();
+  //       return temp;
+  //     } else {
+  //       return ( d.getMonth() - parseInt(dateSplit[2]) );
+  //     }
+  //   }
+
+  //   function dayHandler() {
+  //     if( d.getDay() < parseInt(dateSplit[1]) ){
+  //       var counter = 0;
+  //       var temp = parseInt(dateSplit[1]); 
+  //       while (temp < 13){
+  //         temp++;
+  //       }
+  //       temp += d.getDay();
+  //       return temp;
+  //     } else {
+  //       return ( d.getDay() - parseInt(dateSplit[1]) );
+  //     }
+  //   }
+
+  //   return ( ( parseInt(dateSplit[0]) - d.getFullYear() ) === 0 ? (monthHandler() + 'months ' + ( (parseInt(dateSplit[1]) - d.getDay() + ' Days') + ' ago.') ) : ('Created ' + (parseInt(dateSplit[0]) - d.getFullYear()) + ' years ' + monthHandler() + 'months ' + (parseInt(dateSplit[1]) - d.getDay() + ' Days') + ' ago.') );
+  // };
 
   render() {
     return (
@@ -51,7 +91,7 @@ class Home extends React.Component {
           <Route path="/home/will-apply" render={() => <WillApply info={this.state.jobs} />} />
           <Route path="/home/applied" render={() => <Applied info={this.state.jobs} />} />
           <Route path="/home/follow-up" render={() => <FollowUp info={this.state.jobs} />} />
-          <Route path="/home" info={this.state.jobs} render={() => <Cards info={this.state.jobs} />} />
+          <Route path="/home" info={this.state.jobs} render={() => <Cards info={this.state.jobs} dateHandler={this.dateHandler} />} />
         </Switch>
       </div>
     );

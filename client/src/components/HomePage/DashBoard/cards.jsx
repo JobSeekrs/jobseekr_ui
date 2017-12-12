@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
 const Cards = (props) => {
-
 
   return (
     <div className="row">
@@ -12,16 +13,16 @@ const Cards = (props) => {
             return (
               <div className="card-wrapper" key={job.id}>
                 <div className="card-inner">
-                  <h6 className="job_company">{job.companyId}</h6>
+                  <h6 className="job_company">{job.company_name}</h6>
                   <Link to="/job-detail" href="/job-detail" job={job}>
-                    <h6 className="job_title">{job.name}</h6>
+                    <h6 className="job_title">{job.job_title_name}</h6>
                   </Link>
-                  <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
-                  <p className="personal_rating">Rating: {job.priority}</p>
+                  <a className="original_job_url" href={'http://'+job.url !== 'http://' ? 'http://'+job.url : ""} target="_blank">Job Application</a>
+                  <p className="personal_rating">Rating: {job.rating}</p>
                   <p className="job_status">Status: {job.status}</p>
-                  <p className="job_deadline">Deadline: {job.deadline}</p>
+                  <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
                   <div className="last_applied">
-                    <h6 className="last_applied_text">6 months ago UPDATE</h6>
+                    <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
                   </div>
                 </div>
               </div>
@@ -31,52 +32,52 @@ const Cards = (props) => {
       </div>
 
       <div className="col-md-4">
-        {props.info.map((job) => {
-          if (job.status === 'Applied') {
-            return (
-              <div className="card-wrapper" key={job.id}>
-                <div className="card-inner">
-                  <h6 className="job_company">{job.companyId}</h6>
-                  <Link to="/job-detail" href="/job-detail">
-                    <h6 className="job_title">{job.name}</h6>
-                  </Link>
-                  <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
-                  <p className="personal_rating">Rating: {job.priority}</p>
-                  <p className="job_status">Status: {job.status}</p>
-                  <p className="job_deadline">Deadline: {job.deadline}</p>
-                  <div className="last_applied">
-                    <h6 className="last_applied_text">6 months ago UPDATE</h6>
-                  </div>
+      {props.info.map((job) => {
+        if (job.status === 'Applied') {
+          return (
+            <div className="card-wrapper" key={job.id}>
+              <div className="card-inner">
+                <h6 className="job_company">{job.company_name}</h6>
+                <Link to="/job-detail" href="/job-detail" job={job}>
+                  <h6 className="job_title">{job.job_title_name}</h6>
+                </Link>
+                <a className="original_job_url" href={'http://'+job.url !== 'http://' ? 'http://'+job.url : ""} target="_blank">Job Application</a>
+                <p className="personal_rating">Rating: {job.rating}</p>
+                <p className="job_status">Status: {job.status}</p>
+                <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
+                <div className="last_applied">
+                <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
                 </div>
               </div>
-            );
-          }
-        })}
-      </div>
+            </div>
+          );
+        }
+      })}
+    </div>
 
-      <div className="col-md-4">
-        {props.info.map((job) => {
-          if (job.status === 'Follow Up') {
-            return (
-              <div className="card-wrapper" key={job.id}>
-                <div className="card-inner">
-                  <h6 className="job_company">{job.companyId}</h6>
-                  <Link to="/job-detail" href="/job-detail">
-                    <h6 className="job_title">{job.name}</h6>
-                  </Link>
-                  <a className="original_job_url" href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a>
-                  <p className="personal_rating">Rating: {job.priority}</p>
-                  <p className="job_status">Status: {job.status}</p>
-                  <p className="job_deadline">Deadline: {job.deadline}</p>
-                  <div className="last_applied">
-                    <h6 className="last_applied_text">6 months ago UPDATE</h6>
-                  </div>
-                </div>
+    <div className="col-md-4">
+    {props.info.map((job) => {
+      if (job.status === 'Follow Up') {
+        return (
+          <div className="card-wrapper" key={job.id}>
+            <div className="card-inner">
+              <h6 className="job_company">{job.company_name}</h6>
+              <Link to="/job-detail" href="/job-detail" job={job}>
+                <h6 className="job_title">{job.job_title_name}</h6>
+              </Link>
+              <a className="original_job_url" href={'http://'+job.url !== 'http://' ? 'http://'+job.url : ""} target="_blank">Job Application</a>
+              <p className="personal_rating">Rating: {job.rating}</p>
+              <p className="job_status">Status: {job.status}</p>
+              <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
+              <div className="last_applied">
+               <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
               </div>
-            );
-          }
-        })}
-      </div>
+            </div>
+          </div>
+        );
+      }
+    })}
+  </div>
 
     </div>
   );
