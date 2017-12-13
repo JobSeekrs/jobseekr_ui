@@ -122,31 +122,32 @@ class Manual extends Component {
       companyCity: this.state.companyCity,
       companyState: this.state.companyState,
       companyZip: this.state.companyZip,
-    }).then(() => {
+    }).then((res) => {
       console.log('company info posted!');
-    });
-
-    axios.post('http://localhost:3002/job', {
-      jobTitle: this.state.jobTitle,
-      jobDescription: this.state.jobDescription,
-      jobNotes: this.state.jobNotes,
-      jobSource: this.state.jobSource,
-      jobStatus: this.state.jobStatus,
-      jobPriority: parseInt(this.state.jobPriority, 10),
-      jobDeadline: this.state.jobDeadline._d,
-      jobLink: this.state.jobLink,
-    }).then(() => {
-      console.log('job info posted!');
-    });
-
-    axios.post('http://localhost:3002/contact', {
-      contactFirstName: this.state.contactFirstName,
-      contactLastName: this.state.contactLastName,
-      contactTitle: this.state.contactTitle,
-      contactEmail: this.state.contactEmail,
-      contactPhone: this.state.contactPhone,
-    }).then(() => {
-      console.log('contact info posted!');
+      axios.post('http://localhost:3002/job', {
+        companyId: res.data.insertId,
+        jobTitle: this.state.jobTitle,
+        jobDescription: this.state.jobDescription,
+        jobNotes: this.state.jobNotes,
+        jobSource: this.state.jobSource,
+        jobStatus: this.state.jobStatus,
+        jobPriority: parseInt(this.state.jobPriority, 10),
+        jobDeadline: this.state.jobDeadline._d,
+        jobLink: this.state.jobLink,
+      }).then(() => {
+        console.log('job info posted!');
+      });
+  
+      axios.post('http://localhost:3002/contact', {
+        companyId: res.data.insertId,
+        contactFirstName: this.state.contactFirstName,
+        contactLastName: this.state.contactLastName,
+        contactTitle: this.state.contactTitle,
+        contactEmail: this.state.contactEmail,
+        contactPhone: this.state.contactPhone,
+      }).then(() => {
+        console.log('contact info posted!');
+      });
     });
   }
 

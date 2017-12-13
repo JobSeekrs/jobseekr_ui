@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
-const followup = (props) => {
+const FollowUp = (props) => {
   return (
     <div className="container">
       <h2>Follow Up</h2>
@@ -43,4 +43,4 @@ const followup = (props) => {
   );
 };
 
-export default followup;
+export default FollowUp;
