@@ -26,6 +26,7 @@
 .job_company {
     font-family: 'Open Sans', sans-serif;
     font-weight:bold;
+    margin-right: 5px;
 }
 
 .job_title {

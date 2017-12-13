@@ -22,7 +22,7 @@ const Cards = (props) => {
                   <p className="job_status">Status: {job.status}</p>
                   <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
                   <div className="last_applied">
-                    <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
+                    <h6 className="last_applied_text">Created {<TimeAgo date={job.created_date} /> }</h6>
                   </div>
                 </div>
               </div>
@@ -46,7 +46,7 @@ const Cards = (props) => {
                 <p className="job_status">Status: {job.status}</p>
                 <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
                 <div className="last_applied">
-                <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
+                <h6 className="last_applied_text">Created {<TimeAgo date={job.created_date} /> }</h6>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ const Cards = (props) => {
               <p className="job_status">Status: {job.status}</p>
               <p className="job_deadline">Deadline: {<TimeAgo date={job.deadline} /> } </p>
               <div className="last_applied">
-               <h6 className="last_applied_text">{<TimeAgo date={job.created_date} /> }</h6>
+               <h6 className="last_applied_text">Created {<TimeAgo date={job.created_date} /> }</h6>
               </div>
             </div>
           </div>
