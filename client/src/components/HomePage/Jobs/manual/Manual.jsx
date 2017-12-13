@@ -123,7 +123,8 @@ class Manual extends Component {
       companyState: this.state.companyState,
       companyZip: this.state.companyZip,
     }).then((res) => {
-      console.log('company info posted!');
+      console.log('company info posted!', res.data.insertId);
+      
       axios.post('http://localhost:3002/job', {
         companyId: res.data.insertId,
         jobTitle: this.state.jobTitle,
@@ -134,8 +135,8 @@ class Manual extends Component {
         jobPriority: parseInt(this.state.jobPriority, 10),
         jobDeadline: this.state.jobDeadline._d,
         jobLink: this.state.jobLink,
-      }).then(() => {
-        console.log('job info posted!');
+      }).then((res) => {
+        console.log('job info posted!', res.data);
       });
   
       axios.post('http://localhost:3002/contact', {
@@ -145,10 +146,11 @@ class Manual extends Component {
         contactTitle: this.state.contactTitle,
         contactEmail: this.state.contactEmail,
         contactPhone: this.state.contactPhone,
-      }).then(() => {
-        console.log('contact info posted!');
+      }).then((res) => {
+        console.log('contact info posted!', res.data);
       });
     });
+
   }
 
   render() {
