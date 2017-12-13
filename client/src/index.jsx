@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './components/App';
 import allReducers from './reducers/allReducers';
+// import dotenv from 'dotenv';
+
+// dotenv.config();
 
 const store = createStore(allReducers);
 
