@@ -50,18 +50,18 @@ const job = (props) => {
         </div>
         <div className="col-md-6">
           <div className="form-group">
-            <label>Priority: 5☆ being your dream job</label>
+            <label>Priority: 5 being your dream job</label>
             <select
               className="form-control"
               id="jobPrioritySelect"
               name="jobPriority"
               onChange={props.handleUserInput}
             >
-              <option value="5">☆☆☆☆☆</option>
-              <option value="4">☆☆☆☆</option>
-              <option value="3">☆☆☆</option>
-              <option value="2">☆☆</option>
-              <option value="1">☆</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
             </select>
           </div>
         </div>

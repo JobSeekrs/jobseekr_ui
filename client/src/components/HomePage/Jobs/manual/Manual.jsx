@@ -166,17 +166,17 @@ class Manual extends Component {
         <form onSubmit={this.jobFormSubmit}>
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div className="card">
-              <div className="card-header" role="tab" id="headingOne">
-                <h3
-                  className="mb-0"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  Job
-                </h3>
+              <div
+                role="tab"
+                id="headingOne"
+                className="mb-0"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <h3 className="card-header">Job</h3>
               </div>
               <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div className="card-block">
@@ -198,17 +198,17 @@ class Manual extends Component {
               </div>
             </div>
             <div className="card">
-              <div className="card-header" role="tab" id="headingTwo">
-                <h3
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Company
-                </h3>
+              <div
+                role="tab"
+                id="headingTwo"
+                className="mb-0 collapsed"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <h3 className="card-header">Company</h3>
               </div>
               <div id="collapseTwo" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div className="card-block">
@@ -228,17 +228,17 @@ class Manual extends Component {
               </div>
             </div>
             <div className="card">
-              <div className="card-header" role="tab" id="headingThree">
-                <h3
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Contact
-                </h3>
+              <div
+                role="tab"
+                id="headingThree"
+                className="mb-0 collapsed"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <h3 className="card-header">Contact</h3>
               </div>
               <div id="collapseThree" className="collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div className="card-block">
