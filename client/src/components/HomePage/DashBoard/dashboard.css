@@ -26,6 +26,7 @@
 .job_company {
     font-family: 'Open Sans', sans-serif;
     font-weight:bold;
+    margin-right: 5px;
 }
 
 .job_title {
@@ -91,4 +92,8 @@
 
 .c-lightblue{
     background-color:#00d5f7;
+}
+
+.fa-stack{
+    font-size:14px;
 }

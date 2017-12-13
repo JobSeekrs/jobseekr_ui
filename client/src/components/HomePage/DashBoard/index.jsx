@@ -17,14 +17,12 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3002/job')
+    axios.get('http://localhost:3002/dashboard')
       .then((res) => {
         this.setState({ jobs: res.data });
-        console.log('from component mount after axios: ', this.state);
       })
       .catch(err => console.log(err));
   }
-
 
   render() {
     return (

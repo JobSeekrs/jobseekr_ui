@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
 const followup = (props) => {
   return (
@@ -22,15 +24,15 @@ const followup = (props) => {
             if (job.status === 'Follow Up') {
               return (
                 <tr key={job.id}>
-                  <td>{job.companyId}</td>
+                  <td>{job.company_name}</td>
                   <Link to="/job-detail" href="/job-detail">
-                    <td>{job.name}</td>
+                    <td>{job.job_title_name}</td>
                   </Link>
-                  <td> <a href={'http://'+job.link !== 'http://' ? 'http://'+job.link : ""} target="_blank">Link</a></td>
-                  <td>{job.priority}</td>
+                  <td> <a href={'http://'+job.url !== 'http://' ? 'http://'+job.url : ""} target="_blank">Link</a></td>
+                  <td>{job.rating}</td>
                   <td>{job.status}</td>
                   <td>Job expanded link</td>
-                  <td>{job.deadline}</td>
+                  <td>{<TimeAgo date={job.deadline} /> }</td>
                 </tr>
               );
             }
