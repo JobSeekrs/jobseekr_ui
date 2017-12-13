@@ -7,6 +7,7 @@ import Job from './Job';
 import Company from './Company';
 import Contact from './Contact';
 
+import './manual.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class Manual extends Component {
@@ -269,7 +270,7 @@ class Manual extends Component {
           </div>
           <button
             type="Submit"
-            className="btn btn-primary"
+            className="btn btn-job-form"
             data-toggle="modal"
             data-target="#myModal"
           >Submit
@@ -288,7 +289,7 @@ class Manual extends Component {
                   <Link to="/enter-a-job" href="/enter-a-job" className="btn btn-secondary" onClick={this.removeModal}>
                     Add Another Job Lead
                   </Link>
-                  <Link to="/home" href="/home" className="btn btn-primary" onClick={this.removeModal}>
+                  <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.removeModal}>
                     Go to Dashboard
                   </Link>
                 </div>

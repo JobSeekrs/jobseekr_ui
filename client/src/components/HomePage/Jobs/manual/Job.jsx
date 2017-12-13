@@ -3,57 +3,70 @@ import DatePicker from 'react-datepicker';
 
 const job = (props) => {
   return (
-    <div>
-      <div className="form-group">
-        <label>Title</label>
-        <input
-          type="text"
-          className="form-control"
-          id="jobTitleInput"
-          placeholder="Title"
-          name="jobTitle"
-          value={props.jobTitle}
-          onChange={props.handleUserInput}
-        />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Title</label>
+            <input
+              type="text"
+              className="form-control"
+              id="jobTitleInput"
+              placeholder="Title"
+              name="jobTitle"
+              value={props.jobTitle}
+              onChange={props.handleUserInput}
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Deadline</label>
+            <DatePicker
+              className="form-control"
+              id="jobDeadlineSelect"
+              selected={props.jobDeadline}
+              onChange={props.handleChange}
+              dateFormat="LL"
+            />
+          </div>
+        </div>
       </div>
-      <div className="form-group">
-        <label>Deadline</label>
-        <DatePicker
-          id="jobDeadlineSelect"
-          selected={props.jobDeadline}
-          onChange={props.handleChange}
-          dateFormat="LL"
-        />
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Current Status</label>
+            <select
+              className="form-control"
+              id="jobStatusSelect"
+              name="jobStatus"
+              onChange={props.handleUserInput}
+            >
+              <option value="Will Apply">Will Apply</option>
+              <option value="Applied">Applied</option>
+              <option value="Follow Up">Follow Up</option>
+            </select>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Priority: 5☆ being your dream job</label>
+            <select
+              className="form-control"
+              id="jobPrioritySelect"
+              name="jobPriority"
+              onChange={props.handleUserInput}
+            >
+              <option value="5">☆☆☆☆☆</option>
+              <option value="4">☆☆☆☆</option>
+              <option value="3">☆☆☆</option>
+              <option value="2">☆☆</option>
+              <option value="1">☆</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div className="form-group">
-        <label>Current Status</label>
-        <select
-          className="form-control"
-          id="jobStatusSelect"
-          name="jobStatus"
-          onChange={props.handleUserInput}
-        >
-          <option value="Will Apply">Will Apply</option>
-          <option value="Applied">Applied</option>
-          <option value="Follow Up">Follow Up</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label>Priorty: 1 being dream job</label>
-        <select
-          className="form-control"
-          id="jobPrioritySelect"
-          name="jobPriority"
-          onChange={props.handleUserInput}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-      <div className="form-group">
+      <div className="form-group text-area">
         <label>Description</label>
         <textarea
           className="form-control"
@@ -66,32 +79,38 @@ const job = (props) => {
           onChange={props.handleUserInput}
         />
       </div>
-      <small>{props.jobDescriptionCharLeft} characters left</small>
-      <div className="form-group">
-        <label>Source</label>
-        <input
-          type="text"
-          className="form-control"
-          id="jobSourceInput"
-          placeholder="Where did you hear about this job?"
-          name="jobSource"
-          value={props.jobSource}
-          onChange={props.handleUserInput}
-        />
+      <p className="char-count">{props.jobDescriptionCharLeft} characters left</p>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Source</label>
+            <input
+              type="text"
+              className="form-control"
+              id="jobSourceInput"
+              placeholder="Where did you hear about this job?"
+              name="jobSource"
+              value={props.jobSource}
+              onChange={props.handleUserInput}
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form-group">
+            <label>Link</label>
+            <input
+              type="text"
+              className="form-control"
+              id="jobLinkInput"
+              placeholder="URL to job application"
+              name="jobLink"
+              value={props.jobLink}
+              onChange={props.handleUserInput}
+            />
+          </div>
+        </div>
       </div>
-      <div className="form-group">
-        <label>Link</label>
-        <input
-          type="text"
-          className="form-control"
-          id="jobLinkInput"
-          placeholder="URL to job application"
-          name="jobLink"
-          value={props.jobLink}
-          onChange={props.handleUserInput}
-        />
-      </div>
-      <div className="form-group">
+      <div className="form-group text-area">
         <label>Notes</label>
         <textarea
           className="form-control"
@@ -104,7 +123,7 @@ const job = (props) => {
           onChange={props.handleUserInput}
         />
       </div>
-      <small>{props.jobNotesCharLeft} characters left</small>
+      <p className="char-count">{props.jobNotesCharLeft} characters left</p>
     </div>
   );
 };
