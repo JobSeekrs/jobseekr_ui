@@ -16,15 +16,15 @@ class searchResults extends React.Component {
       return;
     }
     const context = this;
-    axios.post('http://localhost:3002/company', {
+    axios.post('http://localhost:3002/company/search', {
       jobs: context.props.savedSearchedJobs
     }).then(function(response) {
       console.log('this is respnose', response);
-      // axios.post('http://localhost:3002/job', {
-      //   jobs: context.props.savedSearchedJobs
-      // }).then(function(response) {
-      //   console.log('this is response 2', response);
-      // })
+      axios.post('http://localhost:3002/job/search', {
+        jobs: context.props.savedSearchedJobs
+      }).then(function(response) {
+        console.log('this is response 2', response);
+      })
     })
     console.log('saved jobs', this.props.savedSearchedJobs);
   };
