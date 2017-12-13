@@ -6,7 +6,7 @@ import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 const followup = (props) => {
   return (
     <div className="container">
-      <h2>Will Apply</h2>
+      <h2>Follow Up</h2>
       <table className="table">
         <thead>
           <tr>
