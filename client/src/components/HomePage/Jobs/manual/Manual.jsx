@@ -7,6 +7,7 @@ import Job from './Job';
 import Company from './Company';
 import Contact from './Contact';
 
+import './manual.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class Manual extends Component {
@@ -123,7 +124,8 @@ class Manual extends Component {
       companyState: this.state.companyState,
       companyZip: this.state.companyZip,
     }).then((res) => {
-      console.log('company info posted!');
+      console.log('company info posted!', res.data.insertId);
+      
       axios.post('http://localhost:3002/job', {
         companyId: res.data.insertId,
         jobTitle: this.state.jobTitle,
@@ -134,8 +136,14 @@ class Manual extends Component {
         jobPriority: parseInt(this.state.jobPriority, 10),
         jobDeadline: this.state.jobDeadline._d,
         jobLink: this.state.jobLink,
-      }).then(() => {
-        console.log('job info posted!');
+      }).then((res) => {
+        console.log('job info posted!', res.data);
+
+        axios.post('http://localhost:3002/event', {
+          jobId: res.data.insertId,
+          eventName: 'creation',
+          eventType: 'Entered',
+        })
       });
   
       axios.post('http://localhost:3002/contact', {
@@ -145,10 +153,11 @@ class Manual extends Component {
         contactTitle: this.state.contactTitle,
         contactEmail: this.state.contactEmail,
         contactPhone: this.state.contactPhone,
-      }).then(() => {
-        console.log('contact info posted!');
+      }).then((res) => {
+        console.log('contact info posted!', res.data);
       });
     });
+
   }
 
   render() {
@@ -157,17 +166,17 @@ class Manual extends Component {
         <form onSubmit={this.jobFormSubmit}>
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div className="card">
-              <div className="card-header" role="tab" id="headingOne">
-                <h3
-                  className="mb-0"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  Job
-                </h3>
+              <div
+                role="tab"
+                id="headingOne"
+                className="mb-0"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <h3 className="card-header">Job</h3>
               </div>
               <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div className="card-block">
@@ -189,17 +198,17 @@ class Manual extends Component {
               </div>
             </div>
             <div className="card">
-              <div className="card-header" role="tab" id="headingTwo">
-                <h3
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Company
-                </h3>
+              <div
+                role="tab"
+                id="headingTwo"
+                className="mb-0 collapsed"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <h3 className="card-header">Company</h3>
               </div>
               <div id="collapseTwo" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div className="card-block">
@@ -219,17 +228,17 @@ class Manual extends Component {
               </div>
             </div>
             <div className="card">
-              <div className="card-header" role="tab" id="headingThree">
-                <h3
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Contact
-                </h3>
+              <div
+                role="tab"
+                id="headingThree"
+                className="mb-0 collapsed"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <h3 className="card-header">Contact</h3>
               </div>
               <div id="collapseThree" className="collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div className="card-block">
@@ -261,7 +270,7 @@ class Manual extends Component {
           </div>
           <button
             type="Submit"
-            className="btn btn-primary"
+            className="btn btn-job-form"
             data-toggle="modal"
             data-target="#myModal"
           >Submit
@@ -280,7 +289,7 @@ class Manual extends Component {
                   <Link to="/enter-a-job" href="/enter-a-job" className="btn btn-secondary" onClick={this.removeModal}>
                     Add Another Job Lead
                   </Link>
-                  <Link to="/home" href="/home" className="btn btn-primary" onClick={this.removeModal}>
+                  <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.removeModal}>
                     Go to Dashboard
                   </Link>
                 </div>
