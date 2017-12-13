@@ -19,7 +19,11 @@ class Home extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3002/dashboard')
       .then((res) => {
+<<<<<<< refs/remotes/upstream/master
         console.log('res.data here: ', res.data);
+=======
+        console.log('in component did mount', res.data);
+>>>>>>> [add]
         this.setState({ jobs: res.data });
       })
       .catch(err => console.log(err));

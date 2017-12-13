@@ -137,6 +137,12 @@ class Manual extends Component {
         jobLink: this.state.jobLink,
       }).then((res) => {
         console.log('job info posted!', res.data);
+
+        axios.post('http://localhost:3002/event', {
+          jobId: res.data.insertId,
+          eventName: 'creation',
+          eventType: 'Entered',
+        })
       });
   
       axios.post('http://localhost:3002/contact', {
