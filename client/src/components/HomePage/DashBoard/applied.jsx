@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
-const applied = (props) => {
+const Applied = (props) => {
   return (
     <div className="container">
       <h2>Applied</h2>
@@ -43,4 +43,4 @@ const applied = (props) => {
   );
 };
 
-export default applied;
+export default Applied;

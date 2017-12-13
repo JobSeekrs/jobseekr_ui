@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import './dashboard.css';
-import Cards from './cards';
+import Cards from './Cards';
 import WillApply from './WillApply';
 import Applied from './Applied';
 import FollowUp from './FollowUp';
@@ -19,6 +19,7 @@ class Home extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3002/dashboard')
       .then((res) => {
+        console.log('res.data here: ', res.data);
         this.setState({ jobs: res.data });
       })
       .catch(err => console.log(err));
@@ -49,7 +50,7 @@ class Home extends React.Component {
           <Route path="/home/will-apply" render={() => <WillApply info={this.state.jobs} />} />
           <Route path="/home/applied" render={() => <Applied info={this.state.jobs} />} />
           <Route path="/home/follow-up" render={() => <FollowUp info={this.state.jobs} />} />
-          <Route path="/home" info={this.state.jobs} render={() => <Cards info={this.state.jobs} />} />
+          <Route path="/home" render={() => <Cards info={this.state.jobs} />} />
         </Switch>
       </div>
     );
