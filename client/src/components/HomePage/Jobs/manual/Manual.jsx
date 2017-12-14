@@ -48,6 +48,7 @@ class Manual extends Component {
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
     this.jobFormSubmit = this.jobFormSubmit.bind(this);
     this.removeModal = this.removeModal.bind(this);
+    this.linkChecker = this.linkChecker.bind(this);
   }
 
   handleUserInput(e) {
@@ -112,6 +113,16 @@ class Manual extends Component {
     document.getElementbyClassName('modal-backdrop fade show').remove();
   }
 
+  linkChecker(str) {
+    if (str.includes('https://')) {
+      return str.slice(8);
+    }
+  
+    if (str.includes('http://')) {
+      return str.slice(7);
+    }
+  }
+
   jobFormSubmit(e) {
     e.preventDefault();
     axios.post('http://localhost:3002/company', {
@@ -135,7 +146,7 @@ class Manual extends Component {
         jobStatus: this.state.jobStatus,
         jobPriority: parseInt(this.state.jobPriority, 10),
         jobDeadline: this.state.jobDeadline._d,
-        jobLink: this.state.jobLink,
+        jobLink: this.linkChecker(this.state.jobLink),
       }).then((res) => {
         console.log('job info posted!', res.data);
 
