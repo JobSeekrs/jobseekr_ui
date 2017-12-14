@@ -20,7 +20,7 @@ const WillApply = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.info.map((job) => {
+          {props.dashboardLoad.map((job) => {
             if (job.status === 'Will Apply') {
               return (
                 <tr key={job.id}>

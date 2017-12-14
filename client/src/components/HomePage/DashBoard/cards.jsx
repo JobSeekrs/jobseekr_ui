@@ -7,7 +7,7 @@ const Cards = (props) => {
   return (
     <div className="row">
       <div className="col-md-4">
-        {props.info.map((job) => {
+        {props.dashboardLoad.map((job) => {
           if (job.status === 'Will Apply') {
             return (
               <div className="card-wrapper" key={job.id}>
@@ -30,7 +30,7 @@ const Cards = (props) => {
         })}
       </div>
       <div className="col-md-4">
-        {props.info.map((job) => {
+        {props.dashboardLoad.map((job) => {
           if (job.status === 'Applied') {
             return (
               <div className="card-wrapper" key={job.id}>
@@ -53,7 +53,7 @@ const Cards = (props) => {
         })}
       </div>
       <div className="col-md-4">
-        {props.info.map((job) => {
+        {props.dashboardLoad.map((job) => {
           if (job.status == 'Follow Up') {
             return (
               <div className="card-wrapper" key={job.id}>

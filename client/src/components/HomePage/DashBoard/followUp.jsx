@@ -20,7 +20,7 @@ const FollowUp = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.info.map((job) => {
+          {props.dashboardLoad.map((job) => {
             if (job.status === 'Follow Up') {
               return (
                 <tr key={job.id}>

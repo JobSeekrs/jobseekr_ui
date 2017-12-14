@@ -2,25 +2,23 @@ import React from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import './dashboard.css';
-import Cards from './Cards';
-import WillApply from './WillApply';
-import Applied from './Applied';
-import FollowUp from './FollowUp';
+import Cards from '../../../containers/cardsContainer';
+import WillApply from '../../../containers/willApplyContainer';
+import Applied from '../../../containers/appliedContainer';
+import FollowUp from '../../../containers/followUpContainer';
+import dashboardContainer from '../../../containers/dashboardContainer';
 
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      jobs: [],
-    };
   }
 
   componentDidMount() {
+    var context = this;
     axios.get('http://localhost:3002/dashboard')
       .then((res) => {
-        console.log('res.data here: ', res.data);
-        this.setState({ jobs: res.data });
+        context.props.dashboardAction(res.data);
       })
       .catch(err => console.log(err));
   }
@@ -47,10 +45,10 @@ class Home extends React.Component {
         </div>
 
         <Switch>
-          <Route path="/home/will-apply" render={() => <WillApply info={this.state.jobs} />} />
-          <Route path="/home/applied" render={() => <Applied info={this.state.jobs} />} />
-          <Route path="/home/follow-up" render={() => <FollowUp info={this.state.jobs} />} />
-          <Route path="/home" render={() => <Cards info={this.state.jobs} />} />
+          <Route path="/home/will-apply" render={() => <WillApply />} />
+          <Route path="/home/applied" render={() => <Applied />} />
+          <Route path="/home/follow-up" render={() => <FollowUp />} />
+          <Route path="/home" render={() => <Cards />} />
         </Switch>
       </div>
     );

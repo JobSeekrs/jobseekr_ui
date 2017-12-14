@@ -20,7 +20,7 @@ const Applied = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.info.map((job) => {
+          {props.dashboardLoad.map((job) => {
             if (job.status === 'Applied') {
               return (
                 <tr key={job.id}>
