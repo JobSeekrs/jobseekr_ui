@@ -56,6 +56,10 @@ class search extends React.Component {
       axios.post('http://localhost:3002/github', {
         searched: context.state.value,
       }).then(function(response) {
+        response.data.listings.listing.map((job, i) => {
+          job.checked = false;
+          job.checkbox = 0;
+        })
         context.props.searchJobs(response.data);
         context.setState({
           toggle: false,
