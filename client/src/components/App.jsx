@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual/Manual';
 import search from '../containers/searchContainer';
-import Home from './HomePage/DashBoard/index';
+import HomeContainer from '../containers/dashboardContainer';
 import login from './Auth/login';
 import signup from './Auth/signup';
 import JobDetail from './HomePage/DashBoard/JobDescription/index';
@@ -44,7 +44,7 @@ class App extends React.Component {
                 </div>
               </div>
               <Switch>
-                <Route path="/home" component={Home} />
+                <Route path="/home" component={HomeContainer} />
                 <Route path="/enter-a-job" component={manual} />
                 <Route path="/search" component={search} />
                 <Route path="/login" component={login} />
