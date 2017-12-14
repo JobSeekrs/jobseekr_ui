@@ -31,24 +31,38 @@ class searchResultsEntry extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div className="container">
+        {this.props.job.company.location ? (
+          <div>
+            <Link to="/search/details" href="/search/details">
+              <h3 onClick={this.showDetails}>
+                {this.props.job.title}
+              </h3>
+            </Link>
+            <h6>{this.props.job.company.name}</h6>
+            <h6>{this.props.job.company.location.name}</h6>
+            <h6>{this.props.job.company.url}</h6>
+            <Checkbox  checked={this.props.job.checkbox === undefined ? (0) : this.props.job.checkbox} onChange={this.saveOrDeleteJob} />
+          </div>
+        ): 
         <div>
           <Link to="/search/details" href="/search/details">
             <h3 onClick={this.showDetails}>
               {this.props.job.title}
             </h3>
           </Link>
+          {}
           <h6>{this.props.job.company.name}</h6>
-          <h6>{this.props.job.company.location.name}</h6>
           <h6>{this.props.job.company.url}</h6>
           <Checkbox  checked={this.props.job.checkbox === undefined ? (0) : this.props.job.checkbox} onChange={this.saveOrDeleteJob} />
         </div>
+        }
       </div> 
     )
   }
+
 }
 
 export default searchResultsEntry

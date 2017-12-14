@@ -1,4 +1,5 @@
 const searchJobs = (results) => {
+  console.log('this is listings', results.listings.listing)
   if (results.listings) {
     return {
       type: 'SEARCH',

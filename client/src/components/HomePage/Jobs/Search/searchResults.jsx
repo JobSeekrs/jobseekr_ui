@@ -5,9 +5,6 @@ import SearchResultsEntry from '../../../../containers/Search/searchJobDetailAct
 class searchResults extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   saveJobsButton: false,
-    // }
     this.saveJobs = this.saveJobs.bind(this);
   }
 
