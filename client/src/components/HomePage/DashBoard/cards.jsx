@@ -1,4 +1,5 @@
 import React from 'react';
+import CardsEntry from '../../../containers/cardsEntryActionContainer';
 
 const Cards = (props) => {
   return (
@@ -7,9 +8,7 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status === 'Will Apply') {
             return (
-              <div>
                 <CardsEntry key={job.id} job={job}/>
-              </div>
             );
           }
         })}
@@ -18,8 +17,8 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status === 'Applied') {
             return (
-              <div>
-                <CardsEntry key={job.id} job={job}/>
+              <div key={job.id}>
+                <CardsEntry job={job}/>
               </div>
             );
           }
@@ -29,8 +28,8 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status == 'Follow Up') {
             return (
-              <div>
-                <CardsEntry key={job.id} job={job}/>
+              <div key={job.id}>
+                <CardsEntry job={job}/>
               </div>
             );
           }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import searchResultsEntry from '../components/HomePage/DashBoard/JobDescription/index';
+import cardsEntry from '../components/HomePage/DashBoard/CardsEntry';
 import showJobDetails from '../actions/jobDetails';
 
 function matchDispatchToProps (dispatch) {
@@ -10,4 +10,4 @@ function matchDispatchToProps (dispatch) {
   }, dispatch);
 }
 
-export default connect(null, matchDispatchToProps)(searchResultsEntry);
+export default connect(null, matchDispatchToProps)(cardsEntry);

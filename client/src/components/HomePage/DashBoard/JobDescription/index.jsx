@@ -7,6 +7,7 @@ import Info from './Info';
 import Notes from './notes';
 import Notifications from './notifications';
 
+
 class JobDetail extends Component {
   constructor() {
     super()
@@ -17,10 +18,11 @@ class JobDetail extends Component {
       <div className="container push-top">
         <div className="row justify-content-md-center">
           <div className="col-md-12">
-            <h4>Company Name, Job Title</h4>
-            <h5>Job Status</h5>
-            <h6>Deadline</h6>
-            <h6>Job App Link</h6>
+            <h4>{this.props.jobDetails.company_name}, {this.props.jobDetails.job_title_name}</h4>
+            <h5>{this.props.jobDetails.status}</h5>
+            <h5>{this.props.jobDetails.rating}</h5>
+            <h6>{this.props.jobDetails.deadline}</h6>
+            <h6>{this.props.jobDetails.url}</h6>
           </div>
         </div>
         <div className="row push-bottom justify-content-md-center">
