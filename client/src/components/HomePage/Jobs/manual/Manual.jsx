@@ -13,7 +13,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 class Manual extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = { // put corresponding states into objects jobPost/companyPost/contactPost
       jobTitle: '',
       jobDeadline: moment(),
       jobStatus: 'Will Apply',
@@ -48,6 +48,7 @@ class Manual extends Component {
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
     this.jobFormSubmit = this.jobFormSubmit.bind(this);
     this.removeModal = this.removeModal.bind(this);
+    this.linkChecker = this.linkChecker.bind(this);
   }
 
   handleUserInput(e) {
@@ -57,6 +58,8 @@ class Manual extends Component {
     this.setState({
       [name]: value,
     });
+
+    console.log(this.state)
 
     if (name === 'jobDescription') {
       this.jobDescriptionChar(e);
@@ -112,9 +115,19 @@ class Manual extends Component {
     document.getElementbyClassName('modal-backdrop fade show').remove();
   }
 
+  linkChecker(str) {
+    if (str.includes('https://')) {
+      return str.slice(8);
+    }
+  
+    if (str.includes('http://')) {
+      return str.slice(7);
+    }
+  }
+
   jobFormSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:3002/company', {
+    axios.post('http://localhost:3002/company', { // this.state.companyPost
       companyName: this.state.companyName,
       companyDescription: this.state.companyDescription,
       companyPhone: this.state.companyPhone,
@@ -125,8 +138,9 @@ class Manual extends Component {
       companyZip: this.state.companyZip,
     }).then((res) => {
       console.log('company info posted!', res.data.insertId);
+      const companyId = res.data.insertId;
       
-      axios.post('http://localhost:3002/job', {
+      axios.post('http://localhost:3002/job', {// this.state.jobPost
         companyId: res.data.insertId,
         jobTitle: this.state.jobTitle,
         jobDescription: this.state.jobDescription,
@@ -135,27 +149,30 @@ class Manual extends Component {
         jobStatus: this.state.jobStatus,
         jobPriority: parseInt(this.state.jobPriority, 10),
         jobDeadline: this.state.jobDeadline._d,
-        jobLink: this.state.jobLink,
+        jobLink: this.linkChecker(this.state.jobLink),
       }).then((res) => {
         console.log('job info posted!', res.data);
+        const jobId = res.data.insertId
+        console.log('after job post to db', jobId)
 
-        axios.post('http://localhost:3002/event', {
-          jobId: res.data.insertId,
-          eventName: 'creation',
-          eventType: 'Entered',
-        })
+        axios.post('http://localhost:3002/contact', {
+          companyId: companyId,
+          contactFirstName: this.state.contactFirstName,
+          contactLastName: this.state.contactLastName,
+          contactTitle: this.state.contactTitle,
+          contactEmail: this.state.contactEmail,
+          contactPhone: this.state.contactPhone,
+        }).then((res) => {
+          console.log('contact info posted!', res.data);
+          axios.post('http://localhost:3002/event', {
+            jobId: jobId,
+            contactId: res.data.insertId,
+            eventName: 'creation',
+            eventType: 'Entered',
+          })
+        });
       });
   
-      axios.post('http://localhost:3002/contact', {
-        companyId: res.data.insertId,
-        contactFirstName: this.state.contactFirstName,
-        contactLastName: this.state.contactLastName,
-        contactTitle: this.state.contactTitle,
-        contactEmail: this.state.contactEmail,
-        contactPhone: this.state.contactPhone,
-      }).then((res) => {
-        console.log('contact info posted!', res.data);
-      });
     });
 
   }
@@ -181,6 +198,7 @@ class Manual extends Component {
               <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div className="card-block">
                   <Job
+                    //jobPost={this.state.jobpost}
                     jobTitle={this.state.jobTitle}
                     jobDeadline={this.state.jobDeadline}
                     jobStatus={this.state.jobStatus}

@@ -97,12 +97,12 @@ const job = (props) => {
         </div>
         <div className="col-md-6">
           <div className="form-group">
-            <label>Link</label>
+            <label>Job Application URL</label>
             <input
               type="text"
               className="form-control"
               id="jobLinkInput"
-              placeholder="URL to job application"
+              placeholder="URL"
               name="jobLink"
               value={props.jobLink}
               onChange={props.handleUserInput}

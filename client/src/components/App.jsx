@@ -6,7 +6,7 @@ import search from '../containers/searchContainer';
 import HomeContainer from '../containers/dashboardContainer';
 import login from './Auth/login';
 import signup from './Auth/signup';
-import JobDetail from './HomePage/DashBoard/JobDescription/index';
+import JobDetail from '../containers/jobDetailPropsContainer';
 
 class App extends React.Component {
   constructor(props) {
