@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import ActivityLog from './activityLog';
 import Email from './emails';
-import Info from './Info';
+import Info from '../../../../containers/jobInfoPropsContainer';
 import Notes from './notes';
 import Notifications from './notifications';
 
