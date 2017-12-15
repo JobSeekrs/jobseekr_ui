@@ -13,7 +13,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 class Manual extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = { // put corresponding states into objects jobPost/companyPost/contactPost
       jobTitle: '',
       jobDeadline: moment(),
       jobStatus: 'Will Apply',
@@ -58,6 +58,8 @@ class Manual extends Component {
     this.setState({
       [name]: value,
     });
+
+    console.log(this.state)
 
     if (name === 'jobDescription') {
       this.jobDescriptionChar(e);
@@ -125,7 +127,7 @@ class Manual extends Component {
 
   jobFormSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:3002/company', {
+    axios.post('http://localhost:3002/company', { // this.state.companyPost
       companyName: this.state.companyName,
       companyDescription: this.state.companyDescription,
       companyPhone: this.state.companyPhone,
@@ -137,7 +139,7 @@ class Manual extends Component {
     }).then((res) => {
       console.log('company info posted!', res.data.insertId);
       
-      axios.post('http://localhost:3002/job', {
+      axios.post('http://localhost:3002/job', {// this.state.jobPost
         companyId: res.data.insertId,
         jobTitle: this.state.jobTitle,
         jobDescription: this.state.jobDescription,
@@ -192,6 +194,7 @@ class Manual extends Component {
               <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div className="card-block">
                   <Job
+                    //jobPost={this.state.jobpost}
                     jobTitle={this.state.jobTitle}
                     jobDeadline={this.state.jobDeadline}
                     jobStatus={this.state.jobStatus}
