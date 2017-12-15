@@ -138,6 +138,7 @@ class Manual extends Component {
       companyZip: this.state.companyZip,
     }).then((res) => {
       console.log('company info posted!', res.data.insertId);
+      const companyId = res.data.insertId;
       
       axios.post('http://localhost:3002/job', {// this.state.jobPost
         companyId: res.data.insertId,
@@ -151,24 +152,27 @@ class Manual extends Component {
         jobLink: this.linkChecker(this.state.jobLink),
       }).then((res) => {
         console.log('job info posted!', res.data);
+        const jobId = res.data.insertId
+        console.log('after job post to db', jobId)
 
-        axios.post('http://localhost:3002/event', {
-          jobId: res.data.insertId,
-          eventName: 'creation',
-          eventType: 'Entered',
-        })
+        axios.post('http://localhost:3002/contact', {
+          companyId: companyId,
+          contactFirstName: this.state.contactFirstName,
+          contactLastName: this.state.contactLastName,
+          contactTitle: this.state.contactTitle,
+          contactEmail: this.state.contactEmail,
+          contactPhone: this.state.contactPhone,
+        }).then((res) => {
+          console.log('contact info posted!', res.data);
+          axios.post('http://localhost:3002/event', {
+            jobId: jobId,
+            contactId: res.data.insertId,
+            eventName: 'creation',
+            eventType: 'Entered',
+          })
+        });
       });
   
-      axios.post('http://localhost:3002/contact', {
-        companyId: res.data.insertId,
-        contactFirstName: this.state.contactFirstName,
-        contactLastName: this.state.contactLastName,
-        contactTitle: this.state.contactTitle,
-        contactEmail: this.state.contactEmail,
-        contactPhone: this.state.contactPhone,
-      }).then((res) => {
-        console.log('contact info posted!', res.data);
-      });
     });
 
   }
