@@ -43,6 +43,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        <button onClick={this.props.clearData}>Clear</button>
 
         <Switch>
           <Route path="/home/will-apply" render={() => <WillApply />} />
