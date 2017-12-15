@@ -1,23 +1,34 @@
 const saveOrDeleteSearchedJobs = (job, savedJobs) => {
-  if (savedJobs.includes(job) && job.checked === true) {
+  if (job.checked === 'Refresh') {
     return {
-      type: "ALREADY_SAVED_OR_DELETE",
+      type: "REFRESH_JOBS",
       payload: savedJobs
-    };
+    }
   } else if (job.checked === false) {
-    const index = savedJobs.indexOf(job);
-    savedJobs.splice(index, 1);
+    savedJobs.map((savedJob, i) => {
+      if (job.title === savedJob.title) {
+        const index = savedJobs.indexOf(savedJob);
+        savedJobs.splice(index, 1);
+        return {
+          type: "ALREADY_SAVED_OR_DELETE",
+          payload: savedJobs
+        }
+      }
+    }) 
     return {
       type: "ALREADY_SAVED_OR_DELETE",
       payload: savedJobs
     }
-  }
-  else {
+  } else if (savedJobs.includes(job) && job.checked === true) {
+    return {
+      type: "ALREADY_SAVED_OR_DELETE",
+      payload: savedJobs
+    };
+  } else {
     return {
       type: "SAVE_SEARCHED_JOB",
       payload: [job, savedJobs]
     }
   }
 };
-
 export default saveOrDeleteSearchedJobs;

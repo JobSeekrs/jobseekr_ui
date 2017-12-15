@@ -9,6 +9,7 @@ function mapStateToProps(state) {
   return {
     searchResults: state.searchResults,
     savedSearchedJobs: state.savedSearchedJobs,
+    dashboardLoad: state.dashboardLoad,
   };
 }
 

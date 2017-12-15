@@ -13,11 +13,20 @@ class searchResultsEntry extends React.Component {
     this.saveOrDeleteJob = this.saveOrDeleteJob.bind(this);
   }
 
+  componentWillMount() {
+    this.props.dashboardLoad.map((job, i) => {
+      if (job.job_title_name === this.props.job.title) {
+        this.props.job.checkbox = 1;
+      }
+    })
+  }
+
   showDetails() {
     this.props.showJobDetails(this.props.job);
   }
 
   saveOrDeleteJob() {
+    console.log('this is job', this.props.job)
     if (this.props.job.checkbox === 0) {
       this.props.saveOrDeleteJob(this.props.job, true, 1);
       this.setState({
@@ -44,11 +53,6 @@ class searchResultsEntry extends React.Component {
             <h6>{this.props.job.company.name}</h6>
             <h6>{this.props.job.company.location.name}</h6>
             <h6>{this.props.job.company.url}</h6>
-            {this.props.job.checked === true ? (
-              <h6>Saved</h6>
-            ):
-            <div></div>
-            }
             <Checkbox  checked={this.props.job.checkbox} onChange={this.saveOrDeleteJob} />
           </div>
         ): 
@@ -61,11 +65,6 @@ class searchResultsEntry extends React.Component {
           {}
           <h6>{this.props.job.company.name}</h6>
           <h6>{this.props.job.company.url}</h6>
-          {this.props.job.checked === true ? (
-              <h6>Saved</h6>
-            ):
-            <div></div>
-            }
           <Checkbox  checked={this.props.job.checkbox} onChange={this.saveOrDeleteJob} />
         </div>
         }

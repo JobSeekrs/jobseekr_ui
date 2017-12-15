@@ -39,12 +39,14 @@ class search extends React.Component {
   }
 
   saveOrDeleteJob (job, checked, checkbox) {
+
     job.checkbox = checkbox;
     job.checked = checked;
     const savedJobs = {
       jobs: this.props.savedSearchedJobs,
     };
     this.props.saveOrDeleteSearchedJobs(job, savedJobs.jobs);
+    console.log('saved jobs', this.props.savedSearchedJobs)
   }
 
   clicked() {
