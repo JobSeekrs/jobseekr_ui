@@ -8,7 +8,7 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status === 'Will Apply') {
             return (
-                <CardsEntry key={job.id} job={job}/>
+              <CardsEntry key={job.id} job={job}/>
             );
           }
         })}
@@ -17,9 +17,7 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status === 'Applied') {
             return (
-              <div key={job.id}>
-                <CardsEntry job={job}/>
-              </div>
+              <CardsEntry key={job.id} job={job}/>
             );
           }
         })}
@@ -28,9 +26,7 @@ const Cards = (props) => {
         {props.dashboardLoad.map((job) => {
           if (job.status == 'Follow Up') {
             return (
-              <div key={job.id}>
-                <CardsEntry job={job}/>
-              </div>
+              <CardsEntry key={job.id} job={job}/>
             );
           }
         })}
