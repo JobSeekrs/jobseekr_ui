@@ -10,16 +10,7 @@ import allReducers from './reducers/allReducers';
 
 // dotenv.config();
 const persistedState = loadState();
-
-const rootReducer = (state, action) => {
-  if (action.type === 'CLEAR_DATA') {
-    console.log('root reducer returning')
-    state = undefined;
-  }
-  return allReducers(state, action);
-};
 const store = createStore(allReducers, persistedState);
-// const store = createStore(allReducers);
 
 store.subscribe(() => {
   saveState(store.getState());

@@ -7,6 +7,7 @@ import saveOrDeleteSearchedJobs from '../../actions/saveSearchedJobs';
 
 function mapStateToProps(state) {
   return {
+    searchResults: state.searchResults,
     savedSearchedJobs: state.savedSearchedJobs,
     dashboardLoad: state.dashboardLoad,
   }

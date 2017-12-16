@@ -12,6 +12,7 @@ class search extends React.Component {
       value: '',
       toggle: false,
       redirect: false,
+      error: false,
     };
     this.clicked = this.clicked.bind(this);
     this.saveOrDeleteJob = this.saveOrDeleteJob.bind(this);
@@ -19,6 +20,12 @@ class search extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyPressDetails = this.handleKeyPressDetails.bind(this);
   }
+
+  componentWillUnmount() {
+    this.props.searchJobs([]);
+    this.props.saveOrDeleteSearchedJobs({checked: 'Refresh'}, []);
+  }
+ 
   handleKeyPressDetails(e) {
     this.setState({
       redirect: true,
@@ -39,7 +46,6 @@ class search extends React.Component {
   }
 
   saveOrDeleteJob (job, checked, checkbox) {
-
     job.checkbox = checkbox;
     job.checked = checked;
     const savedJobs = {
@@ -63,10 +69,19 @@ class search extends React.Component {
           job.checkbox = 0;
         })
         context.props.searchJobs(response.data);
-        context.setState({
-          toggle: false,
-          value: '',
-        });
+        if (context.props.searchResults.length === 0) {
+          context.setState({
+            toggle: false,
+            value: '',
+            error: true,
+          });
+        } else {
+          context.setState({
+            toggle: false,
+            value: '',
+            error: false,
+          });
+        }
       });
     } else {
       this.setState({
@@ -76,11 +91,21 @@ class search extends React.Component {
         searched: context.state.value,
       }).then(function(response) {
         context.props.searchJobs(response.data);
-        context.setState({
-          toggle: false,
-          value: '',
-          redirect: false,
-        });
+        if (context.props.searchResults.length === 0) {
+          context.setState({
+            toggle: false,
+            value: '',
+            redirect: false,
+            error: true
+          });
+        } else {
+          context.setState({
+            toggle: false,
+            value: '',
+            redirect: false,
+            error: false
+          });
+        }
       });
     }
   }
@@ -92,7 +117,7 @@ class search extends React.Component {
           {this.state.toggle === false ?
           (
             <Switch>
-              <Route exact path="/search" render={(props) => <SearchResults {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
+              <Route exact path="/search" render={(props) => <SearchResults {...props} error = {this.state.error} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
             </Switch>
           ) :
@@ -105,6 +130,35 @@ class search extends React.Component {
       </div>
     );
   }
+
+  // render() {
+  //   return (
+  //     <div className="container">
+  //       <div>
+  //         {this.state.error === true ? (
+  //             <h4>Couldn't Find Anything</h4>
+  //         ) : 
+  //         <div>
+  //           {this.state.toggle === false ?
+  //           (
+  //             <Switch>
+  //               <Route exact path="/search" render={(props) => <SearchResults {...props} error={this.state.error} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
+  //               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
+  //             </Switch>
+  //           ) :
+  //           <div className="center">
+  //             <Ripple />
+  //             {this.state.redirect === true ? (<Redirect to="/search/" />) : null}
+  //           </div>
+  //           }
+  //         </div>
+  //         }
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  
+  
 }
 
 

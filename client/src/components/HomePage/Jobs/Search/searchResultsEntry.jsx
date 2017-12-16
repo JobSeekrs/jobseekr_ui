@@ -22,6 +22,7 @@ class searchResultsEntry extends React.Component {
   }
 
   showDetails() {
+    console.log('this is a job', this.props.job);
     this.props.showJobDetails(this.props.job);
   }
 

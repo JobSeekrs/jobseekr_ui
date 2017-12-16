@@ -15,7 +15,8 @@
 
 
 const searchJobs = (results) => {
-  if (results === []) {
+  if (results.length === 0) {
+    console.log('this should be hitting')
     return {
       type: 'SEARCH',
       payload: results,

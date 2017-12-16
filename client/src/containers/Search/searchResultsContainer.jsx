@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import searchResults from '../../components/HomePage/Jobs/Search/searchResults';
 import saveSearchedJobs from '../../actions/saveSearchedJobs';
 import saveOrDeleteSearchedJobs from '../../actions/saveSearchedJobs';
+import searchJobs from '../../actions/searchJobs';
 
 function mapStateToProps(state) {
   return {
@@ -15,7 +16,8 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    saveOrDeleteSearchedJobs: saveOrDeleteSearchedJobs
+    saveOrDeleteSearchedJobs: saveOrDeleteSearchedJobs,
+    searchJobs: searchJobs
   }, dispatch)
 }
 

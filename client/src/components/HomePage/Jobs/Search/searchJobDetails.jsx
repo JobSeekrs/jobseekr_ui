@@ -41,7 +41,11 @@ class searchJobDetails extends React.Component {
           <h1>{this.props.jobDetails.title}</h1>
           <h4>{this.props.jobDetails.company.name}</h4>
           <h4>{this.props.jobDetails.company.url}</h4>
-          <h4>{this.props.jobDetails.company.location.name}</h4>
+          {this.props.jobDetails.company.location === undefined ? (
+            <div></div>
+          ) :
+            <h4>{this.props.jobDetails.company.location.name}</h4>
+          }
           <h4>{this.props.jobDetails.description.replace(/<(?:.|\n)*?>/gm, '')}</h4>
           <h4>Apply Here: {this.props.jobDetails.apply_url}</h4>
         </div>

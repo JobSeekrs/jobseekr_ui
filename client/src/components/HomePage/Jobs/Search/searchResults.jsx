@@ -29,33 +29,15 @@ class searchResults extends React.Component {
   };
 
   removeModal() {
+    this.props.searchJobs([]);
     document.getElementbyClassName('modal-backdrop fade show').remove();
   }
 
   render() {
     return (
-      // <div>
-      //     {this.props.savedSearchedJobs.length === 0 ? (
-      //       <div>
-      //         <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} />
-      //         <button onClick={this.props.clicked}>Click this to test github api</button>
-      //         {this.props.searchResults.map((job, i) => (
-      //           <SearchResultsEntry job={job} key={i} saveOrDeleteJob={this.props.saveOrDeleteJob}/>
-      //         ))} 
-      //       </div>
-      //     ) : <div>
-      //           <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} />
-      //           <button onClick={this.props.clicked}>Click this to test github api</button>
-      //           <button onClick={this.saveJobs}>Save Jobs</button>
-      //           {this.props.searchResults.map((job, i) => (
-      //             <SearchResultsEntry job={job} key={i} saveOrDeleteJob={this.props.saveOrDeleteJob}/>
-      //           ))}
-      //       </div>
-      //     }
-      // </div>
       <div>
         <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} />
-        <button onClick={this.props.clicked}>Click this to test github api</button>
+        <button onClick={this.props.clicked}>Search For Jobs</button>
         <button
             onClick={this.saveJobs}
             className="btn btn-job-form"
@@ -84,9 +66,19 @@ class searchResults extends React.Component {
               </div>
             </div>
           </div>
-        {this.props.searchResults.map((job, i) => (
-          <SearchResultsEntry job={job} key={i} saveOrDeleteJob={this.props.saveOrDeleteJob}/>
-        ))}
+        <div>
+          <div>
+            {this.props.error === true ? (
+              <h6 className='center'>Could not find anything</h6>
+            ) :
+              <div>
+                {this.props.searchResults.map((job, i) => (
+                  <SearchResultsEntry job={job} key={i} saveOrDeleteJob={this.props.saveOrDeleteJob}/>
+                ))}
+              </div> 
+            }
+          </div>
+        </div>
       </div>
     )
   }
@@ -94,4 +86,3 @@ class searchResults extends React.Component {
 
 
 export default searchResults;
-
