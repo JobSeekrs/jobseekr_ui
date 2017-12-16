@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
 import manual from './HomePage/Jobs/manual/Manual';
-import search from '../containers/searchContainer';
+import search from '../containers/Search/searchContainer';
 import HomeContainer from '../containers/dashboardContainer';
 import login from './Auth/login';
 import signup from './Auth/signup';

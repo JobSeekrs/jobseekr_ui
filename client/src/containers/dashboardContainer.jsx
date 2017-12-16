@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import dashboard from '../components/HomePage/DashBoard/index';
 import dashboardAction from '../actions/dashboardLoad';
+import searchJobs from '../actions/searchJobs';
 
 function mapStateToProps(state) {
   return {
@@ -13,6 +14,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps (dispatch) {
     return bindActionCreators({
         dashboardAction: dashboardAction,
+        searchJobs: searchJobs
     }, dispatch);
   }
 

@@ -12,6 +12,7 @@ import dashboardContainer from '../../../containers/dashboardContainer';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    // this.clearStore = this.clearStore.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +22,10 @@ class Home extends React.Component {
         context.props.dashboardAction(res.data);
       })
       .catch(err => console.log(err));
+  }
+  clearStore() {
+    console.log('clearing')
+    localStorage.clear();
   }
 
   render() {
@@ -43,6 +48,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        <button onClick={this.clearStore}>Clear</button>
 
         <Switch>
           <Route path="/home/will-apply" render={() => <WillApply />} />
