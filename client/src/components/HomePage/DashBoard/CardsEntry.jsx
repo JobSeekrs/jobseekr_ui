@@ -29,7 +29,7 @@ class CardsEntry extends React.Component {
           <p className="job_status">Status: {this.props.job.status}</p>
           <p className="job_deadline">Deadline: {<TimeAgo date={this.props.job.deadline} /> } </p>
           <div className="last_applied">
-          <h6 className="last_applied_text">{<TimeAgo date={this.props.job.created_date} /> }</h6>
+          <h6 className="last_applied_text">Created: {<TimeAgo date={this.props.job.created_date} /> }</h6>
           </div>
         </div>
       </div>
