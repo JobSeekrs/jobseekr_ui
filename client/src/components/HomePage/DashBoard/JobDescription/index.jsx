@@ -32,7 +32,7 @@ componentWillMount(){
               <h4>{this.props.jobDetails.company_name} - {this.props.jobDetails.job_title_name}</h4>
               <h5>{this.props.jobDetails.status}</h5>
               <h5>Rating: {this.props.jobDetails.rating}</h5>
-              <h6>Deadline: {this.props.jobDetails.deadline}</h6>
+              <h6>Deadline: {this.props.jobDetails.deadline.split('T')[0]}</h6>
               <a href={'http://' + this.props.jobDetails.url} target="_blank">Job Application Link</a>
             </div>
           </div>

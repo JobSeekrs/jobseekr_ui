@@ -48,6 +48,7 @@ class EditInfo extends Component {
       [name]: value,
     });
 
+    console.log('changing state:', this.state.jobStatus, this.state.jobPriority, this.state.companyState);
     console.log(this.state)
 
     if (name === 'jobDescription') {

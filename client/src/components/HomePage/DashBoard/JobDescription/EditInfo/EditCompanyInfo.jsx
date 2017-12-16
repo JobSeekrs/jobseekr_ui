@@ -79,6 +79,7 @@ const EditCompanyInfo = (props) => {
               className="form-control"
               id="companyStateSelect"
               name="companyState"
+              value={props.companyState}
               onChange={props.handleUserInput}
             >
               <option value="Alabama">Alabama</option>

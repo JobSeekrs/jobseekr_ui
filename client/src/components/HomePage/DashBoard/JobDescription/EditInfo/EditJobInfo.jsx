@@ -40,6 +40,7 @@ const EditJobInfo = (props) => {
               className="form-control"
               id="jobStatusSelect"
               name="jobStatus"
+              value={props.jobStatus}
               onChange={props.handleUserInput}
             >
               <option value="Will Apply">Will Apply</option>
@@ -55,6 +56,7 @@ const EditJobInfo = (props) => {
               className="form-control"
               id="jobPrioritySelect"
               name="jobPriority"
+              value={props.jobPriority}
               onChange={props.handleUserInput}
             >
               <option value="5">5</option>
