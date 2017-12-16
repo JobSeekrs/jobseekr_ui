@@ -5,6 +5,7 @@ import jobInfoDetails from '../components/HomePage/DashBoard/JobDescription/Init
 function mapStateToProps (state) {
   return {
     jobDetails: state.searchJobDetails,
+    jobDetailsAdditional: state.jobDetailsAdditional,
   }
 }
 

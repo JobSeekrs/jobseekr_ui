@@ -27,7 +27,7 @@ const EditCompanyInfo = (props) => {
               id="companyPhoneInput"
               placeholder="Phone Number"
               name="companyPhone"
-              value=""
+              value={props.companyPhone}
               onChange={props.handleUserInput}
             />
           </div>
@@ -41,7 +41,7 @@ const EditCompanyInfo = (props) => {
           id="companyAddress1Input"
           placeholder="Address 1"
           name="companyAddress1"
-          value=""
+          value={props.companyAddress1}
           onChange={props.handleUserInput}
         />
       </div>
@@ -53,7 +53,7 @@ const EditCompanyInfo = (props) => {
           id="companyAddress2Input"
           placeholder="Address 2"
           name="companyAddress2"
-          value=""
+          value={props.companyAddress2}
           onChange={props.handleUserInput}
         />
       </div>
@@ -67,7 +67,7 @@ const EditCompanyInfo = (props) => {
               id="companyCityInput"
               placeholder="City"
               name="companyCity"
-              value=""
+              value={props.companyCity}
               onChange={props.handleUserInput}
             />
           </div>
@@ -143,7 +143,7 @@ const EditCompanyInfo = (props) => {
               id="companyZipInput"
               placeholder="ZIP Code"
               name="companyZip"
-              value=""
+              value={props.companyZip}
               onChange={props.handleUserInput}
             />
           </div>
@@ -158,7 +158,7 @@ const EditCompanyInfo = (props) => {
           maxLength="255"
           placeholder="Company description"
           name="companyDescription"
-          value=""
+          value={props.companyDescription}
           onChange={props.handleUserInput}
         />
       </div>

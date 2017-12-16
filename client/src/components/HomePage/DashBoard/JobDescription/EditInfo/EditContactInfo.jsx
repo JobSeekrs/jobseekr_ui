@@ -13,7 +13,7 @@ const EditContactInfo = (props) => {
               id="contactNameInput"
               placeholder="First Name"
               name="contactFirstName"
-              value=""
+              value={props.contactFirstName}
               onChange={props.handleUserInput}
             />
           </div>
@@ -27,7 +27,7 @@ const EditContactInfo = (props) => {
               id="contactNameInput"
               placeholder="Last Name"
               name="contactLastName"
-              value=""
+              value={props.contactLastName}
               onChange={props.handleUserInput}
             />
           </div>
@@ -43,7 +43,7 @@ const EditContactInfo = (props) => {
               id="contactTitleInput"
               placeholder="Title"
               name="contactTitle"
-              value=""
+              value={props.contactTitle}
               onChange={props.handleUserInput}
             />
           </div>
@@ -57,7 +57,7 @@ const EditContactInfo = (props) => {
               id="contactPhoneInput"
               placeholder="Phone"
               name="contactPhone"
-              value=""
+              value={props.contactPhone}
               onChange={props.handleUserInput}
             />
           </div>
@@ -71,7 +71,7 @@ const EditContactInfo = (props) => {
           id="contactEmailInput"
           placeholder="Email"
           name="contactEmail"
-          value=""
+          value={props.contactEmail}
           onChange={props.handleUserInput}
         />
       </div>

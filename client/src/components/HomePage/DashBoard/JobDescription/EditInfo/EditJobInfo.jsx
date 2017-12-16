@@ -15,7 +15,7 @@ const EditJobInfo = (props) => {
               placeholder="Title"
               name="jobTitle"
               value={props.jobTitle}
-              onChange={props.handlerUserInput}
+              onChange={props.handleUserInput}
             />
           </div>
         </div>
@@ -40,7 +40,7 @@ const EditJobInfo = (props) => {
               className="form-control"
               id="jobStatusSelect"
               name="jobStatus"
-              onChange={props.handlerUserInput}
+              onChange={props.handleUserInput}
             >
               <option value="Will Apply">Will Apply</option>
               <option value="Applied">Applied</option>
@@ -55,7 +55,7 @@ const EditJobInfo = (props) => {
               className="form-control"
               id="jobPrioritySelect"
               name="jobPriority"
-              onChange={props.handlerUserInput}
+              onChange={props.handleUserInput}
             >
               <option value="5">5</option>
               <option value="4">4</option>
@@ -75,8 +75,8 @@ const EditJobInfo = (props) => {
           maxLength="255"
           placeholder="Job description"
           name="jobDescription"
-          value=""
-          onChange={props.handlerUserInput}
+          value={props.jobDescription}
+          onChange={props.handleUserInput}
         />
       </div>
       <p className="char-count">{props.jobDescriptionCharLeft} characters left</p>
@@ -90,8 +90,8 @@ const EditJobInfo = (props) => {
               id="jobSourceInput"
               placeholder="Where did you hear about this job?"
               name="jobSource"
-              value=""
-              onChange={props.handlerUserInput}
+              value={props.jobSource}
+              onChange={props.handleUserInput}
             />
           </div>
         </div>
@@ -105,25 +105,11 @@ const EditJobInfo = (props) => {
               placeholder="URL"
               name="jobLink"
               value={props.jobLink}
-              onChange={props.handlerUserInput}
+              onChange={props.handleUserInput}
             />
           </div>
         </div>
       </div>
-      <div className="form-group text-area">
-        <label>Notes</label>
-        <textarea
-          className="form-control"
-          id="notesInput"
-          rows="3"
-          maxLength="255"
-          placeholder="Notes for this job"
-          name="jobNotes"
-          value=""
-          onChange={props.handlerUserInput}
-        />
-      </div>
-      <p className="char-count">{props.jobNotesCharLeft} characters left</p>
     </div>
   );
 }

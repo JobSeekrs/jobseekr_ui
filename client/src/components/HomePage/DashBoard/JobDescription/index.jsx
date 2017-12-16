@@ -4,7 +4,7 @@ import { Link, Switch, Route } from 'react-router-dom';
 import ActivityLog from './activityLog';
 import Email from './emails';
 import Info from './Info';
-import Notes from './notes';
+import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
 import Notifications from './notifications';
 import EditInfo from '../../../../containers/EditInfo/EditInfoPropsContainer';
 
@@ -71,6 +71,7 @@ componentWillMount(){
             <Route path="/job-detail/notifications" render={() => <Notifications />} />
             <Route path="/job-detail/email" render={() => <Email />} />
             <Route path="/job-detail/activity-log" render={() => <ActivityLog />} />
+            <Route path="/job-detail/edit-info" render={() => <EditInfo />} />
             <Route path="/job-detail" render={() => <Info />} />
           </Switch>
         </div>
