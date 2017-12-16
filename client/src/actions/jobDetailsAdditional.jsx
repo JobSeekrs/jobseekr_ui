@@ -6,4 +6,3 @@ const jobDetailsAdditional = (results) => {
   };
   
   export default jobDetailsAdditional; 
-  
