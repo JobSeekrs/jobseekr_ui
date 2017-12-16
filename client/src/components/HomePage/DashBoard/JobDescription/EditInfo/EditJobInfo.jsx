@@ -25,8 +25,8 @@ const EditJobInfo = (props) => {
             <DatePicker
               className="form-control"
               id="jobDeadlineSelect"
-              selected=""
-              onChange={props.handlerUserInput}
+              selected={props.jobDeadline}
+              onChange={props.handleChange}
               dateFormat="LL"
             />
           </div>

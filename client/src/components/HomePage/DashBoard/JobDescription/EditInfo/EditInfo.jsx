@@ -11,7 +11,7 @@ class EditInfo extends Component {
     super(props)
     this.state = {
       jobTitle: this.props.jobDetails.job_title_name,
-      jobDeadline: moment(),
+      jobDeadline: moment(this.props.jobDetails.deadline.split('T')[0]),
       jobStatus: this.props.jobDetails.status,
       jobPriority: this.props.jobDetails.rating,
       jobDescription: '',
@@ -43,6 +43,7 @@ class EditInfo extends Component {
     this.jobDescriptionChar = this.jobDescriptionChar.bind(this);
     this.jobNotesChar = this.jobNotesChar.bind(this);
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleUserInput(e) {
@@ -95,17 +96,28 @@ class EditInfo extends Component {
     });
   }
 
+  handleChange(date) {
+    this.setState({
+      jobDeadline: date,
+    });
+    console.log(this.state.jobDeadline._d)
+  }
+
   render() {
     return (
       <div>
         <EditJob
           jobTitle={this.state.jobTitle}
+          jobDeadline={this.state.jobDeadline}
+          jobDescription={this.state.jobDescription}
+          jobSource={this.state.jobSource}
           jobStatus={this.state.jobStatus}
           jobPriority={this.state.jobPriority}
           jobLink={this.state.jobLink}
           jobDescriptionCharLeft={this.state.jobDescriptionCharLeft}
           jobNotesCharLeft={this.state.jobNotesCharLeft}
           handleUserInput={this.handleUserInput}
+          handleChange={this.handleChange}
           jobDescriptionChar={this.jobDescriptionChar}
           jobNotesChar={this.jobNotesChar}
         />

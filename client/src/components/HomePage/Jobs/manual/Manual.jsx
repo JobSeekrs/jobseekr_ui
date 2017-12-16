@@ -17,7 +17,7 @@ class Manual extends Component {
       jobTitle: '',
       jobDeadline: moment(),
       jobStatus: 'Will Apply',
-      jobPriority: '1',
+      jobPriority: '5',
       jobDescription: '',
       jobDescriptionCharLeft: 255,
       jobSource: '',
@@ -110,6 +110,7 @@ class Manual extends Component {
     });
     console.log(this.state.jobDeadline._d)
   }
+  
   removeModal() {
     document.getElementbyClassName('modal-backdrop fade show').remove();
   }
