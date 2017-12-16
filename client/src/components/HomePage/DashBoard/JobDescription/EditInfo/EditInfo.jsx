@@ -38,6 +38,8 @@ class EditInfo extends Component {
     this.jobDescriptionChar = this.jobDescriptionChar.bind(this);
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.removeModal = this.removeModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleUserInput(e) {
@@ -85,10 +87,18 @@ class EditInfo extends Component {
     console.log(this.state.jobDeadline._d)
   }
 
+  removeModal() {
+    document.getElementbyClassName('modal-backdrop fade show').remove();
+  }
+
+  handleSubmit() {
+    console.log('im clicking')
+  }
+
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.jobFormSubmit}>
+        <form>
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div className="card">
               <div
@@ -180,10 +190,36 @@ class EditInfo extends Component {
                 </div>
               </div>
             </div>
-            <button type="Submit" className="btn btn-primary">Save</button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-toggle="modal"
+              data-target="#myModal"
+              onClick={this.handleSubmit}
+            >
+              Save
+            </button>
             <Link to="/job-detail" href="/job-detail" className="btn btn-primary">
               Cancel
             </Link>
+            <div className="modal fade" id="myModal" role="dialog">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h4 className="modal-title">SUCCESS!</h4>
+                    <button type="button" className="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div className="modal-body">
+                    <p>Successfully Updated Job Information!</p>
+                  </div>
+                  <div className="modal-footer">
+                    <Link to="/job-detail" href="/job-detail"  className="btn btn-primary" onClick={this.removeModal}>
+                      Close
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>     
         </form>
       </div>
