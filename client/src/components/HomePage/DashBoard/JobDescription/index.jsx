@@ -22,6 +22,7 @@ componentWillMount(){
 }
 
   render() {
+    console.log('REDUX STATE STUFF', this.props.jobDetailsAdditional);
     return (
       <div className="container push-top-sm">
         <div className="row justify-content-md-center text-center">
