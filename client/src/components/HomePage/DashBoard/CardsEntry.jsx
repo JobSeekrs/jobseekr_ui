@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+import axios from 'axios';
 
 
 class CardsEntry extends React.Component {
@@ -12,7 +13,7 @@ class CardsEntry extends React.Component {
 
   showDetails() {
     this.props.showJobDetails(this.props.job);
-    console.log('in cardsEntry', this.props.job)
+    console.log('in cardsEntry', this.props.job);
   }
 
   render() {

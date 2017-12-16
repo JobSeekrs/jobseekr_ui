@@ -7,13 +7,23 @@ import Info from '../../../../containers/jobInfoPropsContainer';
 import Notes from './notes';
 import Notifications from './notifications';
 
-
 class JobDetail extends Component {
   constructor() {
     super()
   }
 
+componentWillMount(){
+  var context = this;
+  axios.post('http://localhost:3002/jobDetail', {
+    jobId: this.props.jobDetails.id
+  }).then((res) => {
+    console.log('response!: ', res.data[0]);
+    context.props.jobDetailsAction(res.data[0]);
+  })
+}
+
   render() {
+    console.log('REDUX ADDITIONAL', this.props.jobDetailsAdditional);
     return (
       <div className="container push-top">
         <div className="row justify-content-md-center">
