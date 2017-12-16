@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import jobInfoDetails from '../components/HomePage/DashBoard/JobDescription/InitialInfo';
+import EditInfoDetails from '../../components/HomePage/DashBoard/JobDescription/EditInfo/EditInfo';
 
 function mapStateToProps (state) {
   return {
@@ -8,4 +8,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(jobInfoDetails);
+export default connect(mapStateToProps)(EditInfoDetails);
