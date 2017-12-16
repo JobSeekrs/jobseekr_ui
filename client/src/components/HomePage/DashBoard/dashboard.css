@@ -2,8 +2,16 @@
     margin-top:50px;
 }
 
+.push-top-sm{
+    margin-top:25px;
+}
+
 .push-bottom {
     margin-bottom:50px;
+}
+
+.push-bottom-sm{
+    margin-bottom:25px;
 }
 
 .card-wrapper {
@@ -12,6 +20,10 @@
     border-radius:2px;
     margin-bottom:20px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.job-tab{
+    text-align:center;
 }
 
 .card-inner {
@@ -60,10 +72,13 @@
     cursor:pointer;
 }
 
+.left-align{
+    text-align:left;
+}
 
-
-.job-tab{
-    text-align: center;
+.job-detail-sections{
+    border: 1px solid #bbb;
+    padding:20px;
 }
 
 .c-gray{
