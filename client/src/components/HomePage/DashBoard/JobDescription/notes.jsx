@@ -37,8 +37,14 @@ class Notes extends Component {
   }
 
   handleSubmit() {
-    //axios post to db to update jobNotes
-    console.log('im clicking')
+    axios.post('http://localhost:3002/jobDetailsNotes', {
+      jobId: this.props.jobDetailsAdditional.jobId,
+    })
+    
+    axios.put('http://localhost:3002/jobDetailsNotes', {
+      jobId: this.props.jobDetailsAdditional.jobId,
+      jobNotes: this.state.jobNotes
+    })
   }
 
   render() {

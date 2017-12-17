@@ -92,7 +92,15 @@ class EditInfo extends Component {
   }
 
   handleSubmit() {
-    console.log('im clicking')
+    // axios.post('http://localhost:3002/jobInfo', {
+    //   jobId: this.props.jobDetailsAdditional.jobId,
+    //   jobNotes: this.state.jobNotes
+    // })
+    
+    // axios.put('http://localhost:3002/jobInfo', {
+    //   jobId: this.props.jobDetailsAdditional.jobId,
+    //   jobNotes: this.state.jobNotes
+    // })
   }
 
   render() {
