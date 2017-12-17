@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
-import ActivityLog from './activityLog';
+import ActivityLog from '../../../../containers/activityLogContainer';
 import Email from './emails';
 import Info from './Info';
 import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
