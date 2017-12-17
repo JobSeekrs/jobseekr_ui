@@ -3,9 +3,10 @@ import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import ActivityLog from './activityLog';
 import Email from './emails';
-import Info from '../../../../containers/jobInfoPropsContainer';
-import Notes from './notes';
+import Info from './Info';
+import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
 import Notifications from './notifications';
+import EditInfo from '../../../../containers/EditInfo/EditInfoPropsContainer';
 
 class JobDetail extends Component {
   constructor() {
@@ -31,7 +32,7 @@ componentWillMount(){
               <h4>{this.props.jobDetails.company_name} - {this.props.jobDetails.job_title_name}</h4>
               <h5>{this.props.jobDetails.status}</h5>
               <h5>Rating: {this.props.jobDetails.rating}</h5>
-              <h6>Deadline: {this.props.jobDetails.deadline}</h6>
+              <h6>Deadline: {this.props.jobDetails.deadline.split('T')[0]}</h6>
               <a href={'http://' + this.props.jobDetails.url} target="_blank">Job Application Link</a>
             </div>
           </div>
@@ -70,6 +71,7 @@ componentWillMount(){
             <Route path="/job-detail/notifications" render={() => <Notifications />} />
             <Route path="/job-detail/email" render={() => <Email />} />
             <Route path="/job-detail/activity-log" render={() => <ActivityLog />} />
+            <Route path="/job-detail/edit-info" render={() => <EditInfo />} />
             <Route path="/job-detail" render={() => <Info />} />
           </Switch>
         </div>
