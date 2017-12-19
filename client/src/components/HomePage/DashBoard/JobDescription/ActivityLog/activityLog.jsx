@@ -90,7 +90,6 @@ class ActivityLog extends React.Component {
           <option value='Coding Challenge'>Coding Challenge</option>
         </select>
         <button onClick={this.addEvent}>Submit</button>
-        <button>Discard</button>
         <h4>Activity Table</h4>
         <MuiThemeProvider>
           <ActivityLogTable header={this.header} jobId={this.props.jobDetailsAdditional.jobId} />

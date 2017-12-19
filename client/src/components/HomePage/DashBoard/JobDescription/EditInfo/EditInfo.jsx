@@ -31,7 +31,7 @@ class EditInfo extends Component {
       contactEmail: this.props.jobDetailsAdditional.contact_email,
       contactPhone: this.props.jobDetailsAdditional.contact_phone,
       jobDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.job_description.length,
-      // companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
+      companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
     }
 
     this.handleUserInput = this.handleUserInput.bind(this);

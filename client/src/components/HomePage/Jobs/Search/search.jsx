@@ -52,7 +52,6 @@ class search extends React.Component {
       jobs: this.props.savedSearchedJobs,
     };
     this.props.saveOrDeleteSearchedJobs(job, savedJobs.jobs);
-    console.log('saved jobs', this.props.savedSearchedJobs)
   }
 
   clicked() {
@@ -111,7 +110,6 @@ class search extends React.Component {
   }
 
   render() {
-    console.log('this is data', this.props.searchResults)
     return (
       <div className="container">
         <div>
@@ -131,35 +129,6 @@ class search extends React.Component {
       </div>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div className="container">
-  //       <div>
-  //         {this.state.error === true ? (
-  //             <h4>Couldn't Find Anything</h4>
-  //         ) : 
-  //         <div>
-  //           {this.state.toggle === false ?
-  //           (
-  //             <Switch>
-  //               <Route exact path="/search" render={(props) => <SearchResults {...props} error={this.state.error} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPress={this.handleKeyPress} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
-  //               <Route exact path="/search/details" render={(props) => <SearchJobDetails {...props} saveOrDeleteJob={this.saveOrDeleteJob} handleKeyPressDetails={this.handleKeyPressDetails} handleChange={this.handleChange} value={this.state.value} clicked={this.clicked}/>} />
-  //             </Switch>
-  //           ) :
-  //           <div className="center">
-  //             <Ripple />
-  //             {this.state.redirect === true ? (<Redirect to="/search/" />) : null}
-  //           </div>
-  //           }
-  //         </div>
-  //         }
-  //       </div>
-  //     </div>
-  //   );
-  // }
-  
-  
 }
 
 

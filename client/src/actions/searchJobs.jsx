@@ -15,8 +15,12 @@
 
 
 const searchJobs = (results) => {
-  if (results.length === 0) {
-    console.log('this should be hitting')
+  if (results === 'REFRESH') {
+    return {
+      type: "REFRESH_SEARCH",
+      payload: []
+    }
+  } else if (results.length === 0) {
     return {
       type: 'SEARCH',
       payload: results,

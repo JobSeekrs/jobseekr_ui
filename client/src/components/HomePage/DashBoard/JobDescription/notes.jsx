@@ -6,7 +6,7 @@ class Notes extends Component {
     super(props)
     this.state = {
       jobNotes: this.props.jobDetailsAdditional.job_notes,
-      // jobNotesCharLeft: 255 - this.props.jobDetailsAdditional.job_notes.length,
+      jobNotesCharLeft: 255 - this.props.jobDetailsAdditional.job_notes.length,
     }
 
     this.handleUserInput = this.handleUserInput.bind(this);
