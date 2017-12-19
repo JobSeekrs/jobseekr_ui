@@ -1,14 +1,15 @@
 # dependencies
-/node_modules
-/.env
+node_modules
+.env
 
 # testing
-/coverage
+coverage
 
 # production
-/client/public/bundle.js
+bundle.js
 
 # misc
-*/.DS_Store
+.DS_Store
 
 npm-debug.log*
+
