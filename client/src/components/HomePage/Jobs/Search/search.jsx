@@ -111,6 +111,7 @@ class search extends React.Component {
   }
 
   render() {
+    console.log('this is data', this.props.searchResults)
     return (
       <div className="container">
         <div>
