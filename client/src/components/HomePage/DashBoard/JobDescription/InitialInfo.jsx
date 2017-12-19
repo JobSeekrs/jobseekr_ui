@@ -11,7 +11,7 @@ const InitialInfo = (props) => {
         </div>
         <div className="col-md-6">
           <h6>Deadline</h6>
-          <div>{props.jobDetails.deadline.split('T')[0]}</div>
+          {/* <div>{props.jobDetails.deadline.split('T')[0]}</div> */}
         </div>
       </div>
       <div className="row">

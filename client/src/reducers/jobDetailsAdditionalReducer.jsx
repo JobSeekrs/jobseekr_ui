@@ -1,4 +1,4 @@
-const jobDetailsAdditional = (state = null, action) => {
+const jobDetailsAdditional = (state=null, action) => {
     if (action.type === 'JOB_DETAILS_ADDITIONAL') {
         return action.payload;
     }
