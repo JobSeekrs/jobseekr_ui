@@ -11,7 +11,7 @@ class EditInfo extends Component {
     super(props)
     this.state = {
       jobTitle: this.props.jobDetails.job_title_name,
-      jobDeadline: moment(this.props.jobDetails.deadline.split('T')[0]),
+      // jobDeadline: moment(this.props.jobDetails.deadline.split('T')[0]),
       jobStatus: this.props.jobDetails.status,
       jobPriority: this.props.jobDetails.rating,
       jobDescription: this.props.jobDetailsAdditional.job_description,
@@ -31,7 +31,7 @@ class EditInfo extends Component {
       contactEmail: this.props.jobDetailsAdditional.contact_email,
       contactPhone: this.props.jobDetailsAdditional.contact_phone,
       jobDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.job_description.length,
-      companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
+      // companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
     }
 
     this.handleUserInput = this.handleUserInput.bind(this);
