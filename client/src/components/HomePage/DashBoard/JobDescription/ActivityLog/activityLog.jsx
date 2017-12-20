@@ -52,12 +52,13 @@ class ActivityLog extends React.Component {
 
   addEvent() {
     const context = this;
+    console.log('this is job id', this.props.jobDetailsAdditional.jobId);
     const data = {      
       jobId: this.props.jobDetailsAdditional.jobId,
       notes: this.state.text,
       name: this.state.value, 
       type: this.state.option,
-      timeStamp: this.state.date
+      timeStamp: this.state.date._d
     }
     axios.post('http://localhost:3002/event/activityLogPost', data
     ).then(function(response) {
@@ -70,10 +71,9 @@ class ActivityLog extends React.Component {
   }
 
   render() {
-    console.log('rerendering')
     return (
       <div className='container'>
-        <h4>Inside Activity Log</h4>
+        <h4>Date</h4>
         <DatePicker
           className="form-control"
           id="jobDeadlineSelect"
@@ -81,16 +81,17 @@ class ActivityLog extends React.Component {
           onChange={this.handleDateChange}
           dateFormat="LL"
         />
-        <h4>Activity Title</h4>
+        <h4>Title</h4>
         <input value={this.state.value} onChange={this.handleTitleChange}/>
-        <h4>Activity Type </h4>
+        <h4>Type</h4>
         <select value={this.state.option} onChange={this.handleTypeChange}>
           <option value='Phone Call'>Phone Call</option>
           <option value='Interview'>Interview</option>
           <option value='Coding Challenge'>Coding Challenge</option>
+          <option value='Other'>Other</option>
         </select>
         <button onClick={this.addEvent}>Submit</button>
-        <h4>Activity Table</h4>
+        <h4>Activity Log</h4>
         <MuiThemeProvider>
           <ActivityLogTable header={this.header} jobId={this.props.jobDetailsAdditional.jobId} />
         </MuiThemeProvider>

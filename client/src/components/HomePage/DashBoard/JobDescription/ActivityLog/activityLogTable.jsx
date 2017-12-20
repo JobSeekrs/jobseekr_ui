@@ -49,10 +49,10 @@ class ActivityLogTable extends React.Component {
               {item.type}
             </TableRowColumn>
             <TableRowColumn i={i}>
-              {item.timeStamp}
+              {item.timeStamp.split('T')[0]}
             </TableRowColumn>
             <TableRowColumn i={i}>
-              {item.timeStamp}
+              {item.timeStamp.split('T')[1]}
             </TableRowColumn>
             <TableRowColumn i={i}>
               Discard
