@@ -12,24 +12,17 @@ import dashboardContainer from '../../../containers/dashboardContainer';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    // this.clearStore = this.clearStore.bind(this);
   }
 
-  // componentDidMount() {
-  //   var context = this;
-  //   axios.get('http://localhost:3002/dashboard')
-  //     .then((res) => {
-  //       context.props.dashboardAction(res.data);
-  //     })
-  //     .catch(err => console.log(err));
-  // }
-
   componentWillMount() {
-    console.log('DASHBOARD WILL MOUNT')
     var context = this;
     axios.get('http://localhost:3002/dashboard')
       .then((res) => {
-        context.props.dashboardAction(res.data);
+        if (res.data.length === 0) {
+          context.props.dashboardAction([]);
+        } else {
+          context.props.dashboardAction(res.data);
+        }
       })
       .catch(err => console.log(err));
   }

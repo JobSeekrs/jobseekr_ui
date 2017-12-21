@@ -1,7 +1,7 @@
 import React from 'react';
 import LogIn from './components/Auth/login';
 import SignUp from './components/Auth/signup';
-import LandingPageNav from './components/Navigation/tempNav';
+import LandingPageNav from './components/Navigation/LandingPageNav';
 import App from './components/App';
 import { Switch, Link, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -18,13 +18,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         {this.state.loggedIn === false ? (
-          <div>
-            <LandingPageNav />
-            <Switch>
-              <Route path="/login" component={LogIn} />
-              <Route path="/signup" component={SignUp} />
-            </Switch>
-          </div>
+          <div>LandingPage</div>
         ) :
           <App />
         }
