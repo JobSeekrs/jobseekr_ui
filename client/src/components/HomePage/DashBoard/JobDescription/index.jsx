@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Switch, Route } from 'react-router-dom';
 import ActivityLog from '../../../../containers/activityLogContainer';
-import Email from './emails';
+// import Email from './Email/Index';
 import Info from './Info';
 import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
 import Notifications from './notifications';
@@ -14,6 +14,7 @@ class JobDetail extends Component {
     super()
   }
 
+<<<<<<< HEAD
 componentWillMount(){
   var context = this;
   axios.post(`${auth.serverUrl}/jobDetail`, {
@@ -22,10 +23,20 @@ componentWillMount(){
     context.props.jobDetailsAction(res.data[0]);
   })
 }
+=======
+  componentWillMount(){
+    var context = this;
+    axios.post('http://localhost:3002/jobDetail', {
+      jobId: this.props.jobDetails.id
+    }).then((res) => {
+      context.props.jobDetailsAction(res.data[0]);
+    })
+  }
+>>>>>>> [add]
 
-componentDidMount() {
-  window.scrollTo(0,0)
-};
+  componentDidMount() {
+    window.scrollTo(0,0)
+  };
 
   render() {
     console.log('REDUX STATE STUFF', this.props.jobDetailsAdditional);
