@@ -18,6 +18,7 @@ class Home extends React.Component {
     var context = this;
     axios.get(`${auth.serverUrl}/dashboard`)
       .then((res) => {
+        console.log('this is res.data', res.data)
         if (res.data.length === 0) {
           context.props.dashboardAction([]);
         } else {
