@@ -1,12 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Navigation from './Navigation/Navigation';
+// import Navigation from './Navigation/Navigation';
+import Navigation from '../containers/NavigationContainer';
 import manual from './HomePage/Jobs/manual/Manual';
 import search from '../containers/Search/searchContainer';
 import HomeContainer from '../containers/dashboardContainer';
 import login from './Auth/login';
 import signup from './Auth/signup';
 import JobDetail from '../containers/jobDetailPropsContainer';
+import LandingPage from '../landingPage';
 
 class App extends React.Component {
   constructor(props) {
@@ -58,7 +60,6 @@ class App extends React.Component {
     );
   }
 }
-
 
 export default App;
 

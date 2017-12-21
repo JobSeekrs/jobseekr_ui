@@ -31,14 +31,14 @@ class EditInfo extends Component {
       contactEmail: this.props.jobDetailsAdditional.contact_email,
       contactPhone: this.props.jobDetailsAdditional.contact_phone,
       jobDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.job_description.length,
-      // companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
+      companyDescriptionCharLeft: 255 - this.props.jobDetailsAdditional.company_description.length,
     }
 
     this.handleUserInput = this.handleUserInput.bind(this);
     this.jobDescriptionChar = this.jobDescriptionChar.bind(this);
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.removeModal = this.removeModal.bind(this);
+    // this.removeModal = this.removeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -87,9 +87,9 @@ class EditInfo extends Component {
     console.log(this.state.jobDeadline._d)
   }
 
-  removeModal() {
-    document.getElementbyClassName('modal-backdrop fade show').remove();
-  }
+  // removeModal() {
+  //   document.getElementbyClassName('modal-backdrop fade show').remove();
+  // }
 
   handleSubmit() {
     // axios.post('http://localhost:3002/jobInfo', {
@@ -198,7 +198,7 @@ class EditInfo extends Component {
                 </div>
               </div>
             </div>
-            <button
+            {/* <button
               type="button"
               className="btn btn-primary"
               data-toggle="modal"
@@ -206,11 +206,11 @@ class EditInfo extends Component {
               onClick={this.handleSubmit}
             >
               Save
-            </button>
-            <Link to="/job-detail" href="/job-detail" className="btn btn-primary">
-              Cancel
+            </button> */}
+            <Link to="/job-detail" href="/job-detail" className="btn btn-primary" onClick={this.handleSubmit}>
+              Save
             </Link>
-            <div className="modal fade" id="myModal" role="dialog">
+            {/* <div className="modal fade" id="myModal" role="dialog">
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
@@ -227,7 +227,7 @@ class EditInfo extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>     
         </form>
       </div>

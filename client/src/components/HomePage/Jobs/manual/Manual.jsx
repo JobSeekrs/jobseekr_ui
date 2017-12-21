@@ -47,7 +47,7 @@ class Manual extends Component {
     this.jobNotesChar = this.jobNotesChar.bind(this);
     this.companyDescriptionChar = this.companyDescriptionChar.bind(this);
     this.jobFormSubmit = this.jobFormSubmit.bind(this);
-    this.removeModal = this.removeModal.bind(this);
+    // this.removeModal = this.removeModal.bind(this);
     this.linkChecker = this.linkChecker.bind(this);
   }
 
@@ -111,9 +111,9 @@ class Manual extends Component {
     console.log(this.state.jobDeadline._d)
   }
   
-  removeModal() {
-    document.getElementbyClassName('modal-backdrop fade show').remove();
-  }
+  // removeModal() {    
+  //   // document.getElementbyClassName('modal-backdrop fade show').remove();
+  // }
 
   linkChecker(str) {
     if (str.includes('https://')) {
@@ -126,6 +126,7 @@ class Manual extends Component {
   }
 
   jobFormSubmit(e) {
+    console.log('hiting')
     e.preventDefault();
     axios.post('http://localhost:3002/company', { // this.state.companyPost
       companyName: this.state.companyName,
@@ -180,7 +181,7 @@ class Manual extends Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.jobFormSubmit}>
+        <form>
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div className="card">
               <div
@@ -286,14 +287,15 @@ class Manual extends Component {
             >Upload the resume and cover letter you used or plan to use for this job.
             </small>
           </div>
-          <button
+          {/* <button
             type="Submit"
             className="btn btn-job-form"
             data-toggle="modal"
             data-target="#myModal"
           >Submit
-          </button>
-          <div className="modal fade" id="myModal" role="dialog">
+          </button> */}
+          <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.jobFormSubmit}>Submit</Link>
+          {/* <div className="modal fade" id="myModal" role="dialog">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -313,7 +315,7 @@ class Manual extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </form>
       </div>
     );
