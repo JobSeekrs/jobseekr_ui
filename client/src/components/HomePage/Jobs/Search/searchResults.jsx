@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import auth from '../../../../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import SearchResultsEntry from '../../../../containers/Search/searchJobDetailActionContainer';
 
