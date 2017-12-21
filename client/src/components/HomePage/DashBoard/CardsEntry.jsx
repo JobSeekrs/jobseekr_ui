@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 class CardsEntry extends React.Component {

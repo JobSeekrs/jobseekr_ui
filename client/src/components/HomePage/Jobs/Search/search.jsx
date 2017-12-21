@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Ripple from './Ripple.svg';
 import SearchResults from '../../../../containers/Search/searchResultsContainer';
 import SearchJobDetails from '../../../../containers/Search/searchJobDetailPropsContainer';
+import auth from '../../../../helpers/auth';
 
 class search extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class search extends React.Component {
       this.setState({
         toggle: true,
       });
-      axios.post('http://localhost:3002/github', {
+      axios.post(`${auth.serverUrl}/github`, {
         searched: context.state.value,
       }).then(function(response) {
         response.data.listings.listing.map((job, i) => {
@@ -86,7 +87,7 @@ class search extends React.Component {
       this.setState({
         toggle: true,
       });
-      axios.post('http://localhost:3002/github', {
+      axios.post(`${auth.serverUrl}/github`, {
         searched: context.state.value,
       }).then(function(response) {
         context.props.searchJobs(response.data);

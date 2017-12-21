@@ -7,7 +7,7 @@ import WillApply from '../../../containers/willApplyContainer';
 import Applied from '../../../containers/appliedContainer';
 import FollowUp from '../../../containers/followUpContainer';
 import dashboardContainer from '../../../containers/dashboardContainer';
-
+import auth from '../../../helpers/auth';
 
 class Home extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Home extends React.Component {
 
   componentWillMount() {
     var context = this;
-    axios.get('http://localhost:3002/dashboard')
+    axios.get(`${auth.serverUrl}/dashboard`)
       .then((res) => {
         if (res.data.length === 0) {
           context.props.dashboardAction([]);

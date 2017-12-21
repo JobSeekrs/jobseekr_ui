@@ -92,12 +92,12 @@ class EditInfo extends Component {
   // }
 
   handleSubmit() {
-    // axios.post('http://localhost:3002/jobInfo', {
+    // axios.post('/jobInfo', {
     //   jobId: this.props.jobDetailsAdditional.jobId,
     //   jobNotes: this.state.jobNotes
     // })
     
-    // axios.put('http://localhost:3002/jobInfo', {
+    // axios.put('/jobInfo', {
     //   jobId: this.props.jobDetailsAdditional.jobId,
     //   jobNotes: this.state.jobNotes
     // })

@@ -7,6 +7,7 @@ import Info from './Info';
 import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
 import Notifications from './notifications';
 import EditInfo from '../../../../containers/EditInfo/EditInfoPropsContainer';
+import auth from '../../../../helpers/auth';
 
 class JobDetail extends Component {
   constructor() {
@@ -15,7 +16,7 @@ class JobDetail extends Component {
 
 componentWillMount(){
   var context = this;
-  axios.post('http://localhost:3002/jobDetail', {
+  axios.post(`${auth.serverUrl}/jobDetail`, {
     jobId: this.props.jobDetails.id
   }).then((res) => {
     context.props.jobDetailsAction(res.data[0]);

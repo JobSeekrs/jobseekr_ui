@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import auth from '../../../../helpers/auth';
 
 class Notes extends Component {
   constructor(props) {
@@ -37,11 +38,11 @@ class Notes extends Component {
   }
 
   handleSubmit() {
-    axios.post('http://localhost:3002/jobDetailsNotes', {
+    axios.post(`${auth.serverUrl}/jobDetailsNotes`, {
       jobId: this.props.jobDetailsAdditional.jobId,
     })
     
-    axios.put('http://localhost:3002/jobDetailsNotes', {
+    axios.put(`${auth.serverUrl}/jobDetailsNotes`, {
       jobId: this.props.jobDetailsAdditional.jobId,
       jobNotes: this.state.jobNotes
     })
