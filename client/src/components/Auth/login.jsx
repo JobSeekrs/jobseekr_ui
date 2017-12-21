@@ -14,7 +14,9 @@ class LoginForm extends React.Component {
   }
 
   componentWillMount() {
-    auth.logout();
+    this.setState({
+      loginSucceeded: false,
+    });
   }
 
   onChangeLoginForm(e) {
@@ -46,59 +48,65 @@ class LoginForm extends React.Component {
     }
   }
   render() {
-    // if (this.state.loginSucceeded) {
-    //   return <Redirect to="/home" />;
-    // }
+    if (this.state.loginSucceeded) {
+      return <Redirect to="/home" />;
+    }
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <h2>Log In</h2>
-            <form 
-              onSubmit={this.onSubmitLoginForm}
-              id="loginForm"
-              name="loginForm"
-            >
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="emailLogin"
-                  name="emailLogin"
-                  placeholder="Email Address"
-                  onChange={this.onChangeLoginForm}
-                />
+      <div>
+        {this.state.loginSucceeded === false ? (
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-6">
+                <h2>Log In</h2>
+                <form 
+                  onSubmit={this.onSubmitLoginForm}
+                  id="loginForm"
+                  name="loginForm"
+                >
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="emailLogin"
+                      name="emailLogin"
+                      placeholder="Email Address"
+                      onChange={this.onChangeLoginForm}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.onChangeLoginForm}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <button
+                      type="Log In"
+                      id="btn-login"
+                      name="btn-login"
+                      className="btn btn-primary "
+                    >Log In
+                    </button>
+                    <Link
+                      to="/signup"
+                      href="/signup"
+                      id="btn-login"
+                      name="btn-login"
+                      className="btn btn-secondary"
+                    >Sign Up
+                    </Link>
+                  </div>
+                </form>
               </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={this.onChangeLoginForm}
-                />
-              </div>
-              <div className="form-group">
-                <button
-                  type="Log In"
-                  id="btn-login"
-                  name="btn-login"
-                  className="btn btn-primary "
-                >Log In
-                </button>
-                <Link
-                  to="/signup"
-                  href="/signup"
-                  id="btn-login"
-                  name="btn-login"
-                  className="btn btn-secondary"
-                >Sign Up
-                </Link>
-              </div>
-            </form>
+            </div>
           </div>
-        </div>
+        ) :
+          <Redirect to="/home" />
+        }
       </div>
     );
   }

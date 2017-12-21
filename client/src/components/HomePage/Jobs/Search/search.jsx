@@ -23,6 +23,7 @@ class search extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log('UNMOUNT HITTING')
     this.props.searchJobs([]);
     this.props.saveOrDeleteSearchedJobs({checked: 'Refresh'}, []);
   }
