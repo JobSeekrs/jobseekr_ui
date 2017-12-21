@@ -14,7 +14,6 @@ class JobDetail extends Component {
     super()
   }
 
-<<<<<<< HEAD
 componentWillMount(){
   var context = this;
   axios.post(`${auth.serverUrl}/jobDetail`, {
@@ -23,16 +22,6 @@ componentWillMount(){
     context.props.jobDetailsAction(res.data[0]);
   })
 }
-=======
-  componentWillMount(){
-    var context = this;
-    axios.post('http://localhost:3002/jobDetail', {
-      jobId: this.props.jobDetails.id
-    }).then((res) => {
-      context.props.jobDetailsAction(res.data[0]);
-    })
-  }
->>>>>>> [add]
 
   componentDidMount() {
     window.scrollTo(0,0)

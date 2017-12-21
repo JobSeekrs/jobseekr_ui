@@ -37,12 +37,7 @@ class Manual extends Component {
       contactTitle: '',
       contactEmail: '',
       contactPhone: '',
-<<<<<<< HEAD
-      maxCount: 255,
       added: false,
-=======
-      submitStatus: false,
->>>>>>> [add]
     };
 
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -148,6 +143,7 @@ class Manual extends Component {
         source: this.state.jobSource,
         status: this.state.jobStatus,
         priority: Number(this.state.jobPriority),
+        deadline: moment(this.state.jobDeadline).format('YYYY-MM-DD HH:mm:ss'),
         link: this.linkChecker(this.state.jobLink),
       },
       contact: {
@@ -161,36 +157,19 @@ class Manual extends Component {
         name: 'creation',
         type: 'Entered',
       },
-<<<<<<< HEAD
-    }
+    };
     
     axios.post(`${auth.serverUrl}/job/manual`, jobPost)
-      .then(res => {
+      .then((res) => {
         console.log('job added');
         this.setState({
           added: true,
         //redirect to dashboard
-      })
-      .catch(err => {
-        console.log('error adding job', err)
-        //user friendly error message
-        })
-      })
-  } 
-=======
-    };
->>>>>>> [add]
-
-    axios.post(`${config.apiServer}/job/manual`, jobPost)
-      .then((res) => {
-        console.log('job added', res);
-
-        this.setState({
-          submitStatus: true,
         });
       })
       .catch((err) => {
         console.log('error adding job', err);
+        //user friendly error message
       });
   }
   //   axios.post('http://localhost:3002/company', { // this.state.companyPost
@@ -245,7 +224,6 @@ class Manual extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div>
         {this.state.added === false ? (
           <div className="container">
@@ -341,7 +319,7 @@ class Manual extends Component {
                   </div>
                 </div>
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label>Upload File</label>
                 <input
                   type="file"
@@ -354,7 +332,7 @@ class Manual extends Component {
                   className="form-text text-muted"
                 >Upload the resume and cover letter you used or plan to use for this job.
                 </small>
-              </div>
+              </div> */}
               {/* <button
                 type="Submit"
                 className="btn btn-job-form"
@@ -387,150 +365,8 @@ class Manual extends Component {
             </form>
           </div>
         ) :
-        <Redirect to="/home" />
-      }
-=======
-      <div className="container">
-        { this.state.submitStatus ?
-          <Redirect to="/home" /> :
-          <form>
-            <div id="accordion" role="tablist" aria-multiselectable="true">
-              <div className="card">
-                <div
-                  role="tab"
-                  id="headingOne"
-                  className="mb-0"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  <h3 className="card-header">Job</h3>
-                </div>
-                <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                  <div className="card-block">
-                    <Job
-                      // jobPost={this.state.jobpost}
-                      jobTitle={this.state.jobTitle}
-                      jobDeadline={this.state.jobDeadline}
-                      jobStatus={this.state.jobStatus}
-                      jobPriority={this.state.jobPriority}
-                      jobDescription={this.state.jobDescription}
-                      jobDescriptionCharLeft={this.state.jobDescriptionCharLeft}
-                      jobSource={this.state.jobSource}
-                      jobLink={this.state.jobLink}
-                      jobNotes={this.state.jobNotes}
-                      jobNotesCharLeft={this.state.jobNotesCharLeft}
-                      handleUserInput={this.handleUserInput}
-                      handleChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="card">
-                <div
-                  role="tab"
-                  id="headingTwo"
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  <h3 className="card-header">Company</h3>
-                </div>
-                <div id="collapseTwo" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                  <div className="card-block">
-                    <Company
-                      companyName={this.state.companyName}
-                      companyPhone={this.state.companyPhone}
-                      companyAddress1={this.state.companyAddress1}
-                      companyAddress2={this.state.companyAddress2}
-                      companyCity={this.state.companyCity}
-                      companyState={this.state.companyState}
-                      companyZip={this.state.companyZip}
-                      companyDescription={this.state.companyDescription}
-                      companyDescriptionCharLeft={this.state.companyDescriptionCharLeft}
-                      handleUserInput={this.handleUserInput}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="card">
-                <div
-                  role="tab"
-                  id="headingThree"
-                  className="mb-0 collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  <h3 className="card-header">Contact</h3>
-                </div>
-                <div id="collapseThree" className="collapse" role="tabpanel" aria-labelledby="headingThree">
-                  <div className="card-block">
-                    <Contact
-                      contactFirstName={this.state.contactFirstName}
-                      contactLastName={this.state.contactLastName}
-                      contactTitle={this.state.contactTitle}
-                      contactEmail={this.state.contactEmail}
-                      contactPhone={this.state.contactPhone}
-                      handleUserInput={this.handleUserInput}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Upload File</label>
-              <input
-                type="file"
-                className="form-control-file"
-                id="exampleInputFile"
-                aria-describedby="fileHelp"
-              />
-              <small
-                id="fileHelp"
-                className="form-text text-muted"
-              >Upload the resume and cover letter you used or plan to use for this job.
-              </small>
-            </div>
-            {/* <button
-              type="Submit"
-              className="btn btn-job-form"
-              data-toggle="modal"
-              data-target="#myModal"
-            >Submit
-            </button> */}
-            <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.jobFormSubmit}>Submit</Link>
-            {/* <div className="modal fade" id="myModal" role="dialog">
-              <div className="modal-dialog">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h4 className="modal-title">SUCCESS!</h4>
-                    <button type="button" className="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div className="modal-body">
-                    <p>Successfully Added Job Lead!</p>
-                  </div>
-                  <div className="modal-footer">
-                    <Link to="/enter-a-job" href="/enter-a-job" className="btn btn-secondary" onClick={this.removeModal}>
-                      Add Another Job Lead
-                    </Link>
-                    <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.removeModal}>
-                      Go to Dashboard
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </form>
+          <Redirect to="/home" />
         }
->>>>>>> [add]
       </div>
     );
   }

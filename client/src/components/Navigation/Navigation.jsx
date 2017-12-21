@@ -32,8 +32,8 @@ class Navigation extends React.Component {
           <li>
             <Link to="/signup" href="/signup">Sign Up</Link>
           </li>
-          <li className="sidebar-brand">
-            <button onClick={this.logout}>Log Out</button>
+          <li>
+            <Link to="/login" href="/login" onClick={this.logout}>Log Out</Link>
           </li>
         </ul>
       </div>

@@ -41,9 +41,6 @@ class App extends React.Component {
                   Toggle Menu
                   </button>
                 </div>
-                <div className="offset-md-2 col-md-7">
-                  <h3>Your Name</h3>
-                </div>
               </div>
               <Switch>
                 <Route path="/home" component={HomeContainer} />
