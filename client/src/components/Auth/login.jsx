@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-// import api from '../../helper/apiAuth';
 import auth from '../../helpers/auth';
 
 class LoginForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      // emailLogin: '',
-      // password: '',
       loginSucceeded: false,
     };
     this.onChangeLoginForm = this.onChangeLoginForm.bind(this);
@@ -35,27 +32,23 @@ class LoginForm extends React.Component {
           username: this.state.emailLogin,
           password: this.state.password,
         },
-      })
-      .then(response => {
-        console.log(response.status)
-        console.log(response.data)
+      }).then((response) => {
         if (response.status === 200) {
           auth.login(response.data);
           this.setState({ loginSucceeded: true });
         } else {
           alert('Please try again');
         }
-      })
-      .catch(error => {
+      }).catch((error) => {
         console.log('in catch', error)
         alert('Login error', error);
       });
     }
   }
   render() {
-    if (this.state.loginSucceeded) {
-      return <Redirect to="/home" />;
-    }
+    // if (this.state.loginSucceeded) {
+    //   return <Redirect to="/home" />;
+    // }
     return (
       <div className="container">
         <div className="row justify-content-center">
