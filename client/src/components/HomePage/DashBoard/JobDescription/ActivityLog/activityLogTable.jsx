@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import auth from '../../../../../helpers/auth';
 import {
   Table,
   TableBody, 
@@ -21,7 +22,7 @@ class ActivityLogTable extends React.Component {
   componentWillMount() {
     console.log('hitting')
     const context = this;
-    axios.post('http://localhost:3002/event/activityLog', {
+    axios.post(`${auth.serverUrl}/event/activityLog`, {
       jobId: this.props.jobId
     }).then(function(response) {
       context.props.addActivityLog(response.data);

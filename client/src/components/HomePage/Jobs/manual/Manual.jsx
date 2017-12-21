@@ -6,7 +6,7 @@ import moment from 'moment';
 import Job from './Job';
 import Company from './Company';
 import Contact from './Contact';
-import config from '../../../../../../config';
+import auth from '../../../../helpers/auth';
 import './manual.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -162,7 +162,7 @@ class Manual extends Component {
       },
     }
     
-    axios.post(`${config.apiServer}/job/manual`, jobPost)
+    axios.post(`${auth.serverUrl}/job/manual`, jobPost)
       .then(res => {
         console.log('job added');
         //redirect to dashboard

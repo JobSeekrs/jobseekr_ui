@@ -4,6 +4,7 @@ import moment from 'moment';
 import axios from 'axios';
 import ActivityLogTable from '../../../../../containers/activityLogTableContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import auth from '../../../../../helpers/auth';
 
 class ActivityLog extends React.Component {
   constructor(props) {
@@ -60,9 +61,9 @@ class ActivityLog extends React.Component {
       type: this.state.option,
       timeStamp: this.state.date._d
     }
-    axios.post('http://localhost:3002/event/activityLogPost', data
+    axios.post(`${auth.serverUrl}/event/activityLogPost`, data
     ).then(function(response) {
-      axios.post('http://localhost:3002/event/activityLog', {
+      axios.post(`${auth.serverUrl}/event/activityLog`, {
         jobId: context.props.jobId
       }).then(function(response) {
         context.props.addActivityLog(response.data);
