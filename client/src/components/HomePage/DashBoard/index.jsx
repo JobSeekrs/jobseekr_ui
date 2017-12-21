@@ -15,7 +15,17 @@ class Home extends React.Component {
     // this.clearStore = this.clearStore.bind(this);
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   var context = this;
+  //   axios.get('http://localhost:3002/dashboard')
+  //     .then((res) => {
+  //       context.props.dashboardAction(res.data);
+  //     })
+  //     .catch(err => console.log(err));
+  // }
+
+  componentWillMount() {
+    console.log('DASHBOARD WILL MOUNT')
     var context = this;
     axios.get('http://localhost:3002/dashboard')
       .then((res) => {
@@ -23,6 +33,7 @@ class Home extends React.Component {
       })
       .catch(err => console.log(err));
   }
+
   clearStore() {
     console.log('clearing')
     localStorage.clear();

@@ -38,14 +38,15 @@ class searchResults extends React.Component {
       <div>
         <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} />
         <button onClick={this.props.clicked}>Search For Jobs</button>
-        <button
+        {/* <button
             onClick={this.saveJobs}
             className="btn btn-job-form"
             data-toggle="modal"
             data-target="#myModal"
           >Submit
-        </button>
-        <div className="modal fade" id="myModal" role="dialog">
+        </button> */}
+        <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.saveJobs}>Submit</Link>
+        {/* <div className="modal fade" id="myModal" role="dialog">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -59,13 +60,13 @@ class searchResults extends React.Component {
                   <Link to="/search" href="/enter-a-job" className="btn btn-secondary" data-dismiss="modal">
                     Search for more Jobs
                   </Link>
-                  <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.removeModal}>
+                  <Link to="/home" href="/home" className="btn btn-job-form" >
                     Go to Dashboard
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         <div>
           <div>
             {this.props.error === true ? (

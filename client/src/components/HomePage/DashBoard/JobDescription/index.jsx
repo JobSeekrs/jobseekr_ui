@@ -57,11 +57,11 @@ componentDidMount() {
               <Link to="/job-detail/notifications" href="/job-detail/notifications">Notifications</Link>
             </div>
           </div>
-          <div className="col-md-2">
+          {/* <div className="col-md-2">
             <div className="job-tab">
               <Link to="/job-detail/email" href="/job-detail/email">Email</Link>
             </div>
-          </div>
+          </div> */}
           <div className="col-md-2">
             <div className="job-tab">
               <Link to="/job-detail/activity-log" href="/job-detail/activity-log">Activity Log</Link>
@@ -73,7 +73,7 @@ componentDidMount() {
           <Switch>
             <Route path="/job-detail/notes" render={() => <Notes />} />
             <Route path="/job-detail/notifications" render={() => <Notifications />} />
-            <Route path="/job-detail/email" render={() => <Email />} />
+            {/* <Route path="/job-detail/email" render={() => <Email />} /> */}
             <Route path="/job-detail/activity-log" render={() => <ActivityLog jobId={this.props.jobDetailsAdditional.jobId}/>} />
             <Route path="/job-detail/edit-info" render={() => <EditInfo />} />
             <Route path="/job-detail" render={() => <Info />} />
