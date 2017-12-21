@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-// import api from '../../helper/apiAuth';
 import auth from '../../helpers/auth';
 
 class LoginForm extends React.Component {
@@ -17,7 +16,7 @@ class LoginForm extends React.Component {
   }
 
   componentWillMount() {
-    auth.logout();
+    // auth.logout();
   }
 
   onChangeLoginForm(e) {

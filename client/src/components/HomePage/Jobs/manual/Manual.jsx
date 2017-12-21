@@ -6,7 +6,7 @@ import moment from 'moment';
 import Job from './Job';
 import Company from './Company';
 import Contact from './Contact';
-
+import config from '../../../../../../config';
 import './manual.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -128,55 +128,101 @@ class Manual extends Component {
   jobFormSubmit(e) {
     console.log('hiting')
     e.preventDefault();
-    axios.post('http://localhost:3002/company', { // this.state.companyPost
-      companyName: this.state.companyName,
-      companyDescription: this.state.companyDescription,
-      companyPhone: this.state.companyPhone,
-      companyAddress1: this.state.companyAddress1,
-      companyAddress2: this.state.companyAddress2,
-      companyCity: this.state.companyCity,
-      companyState: this.state.companyState,
-      companyZip: this.state.companyZip,
-    }).then((res) => {
-      console.log('company info posted!', res.data.insertId);
-      const companyId = res.data.insertId;
+
+    const jobPost = {
+      company: {
+        name: this.state.companyName,
+        description: this.state.companyDescription,
+        phone: this.state.companyPhone,
+        address1: this.state.companyAddress1,
+        address2: this.state.companyAddress2,
+        city: this.state.companyCity,
+        state: this.state.companyState,
+        zip: this.state.companyZip,     
+      },   
+      job: {
+        name: this.state.jobTitle,
+        description: this.state.jobDescription,
+        notes: this.state.jobNotes,
+        source: this.state.jobSource,
+        status: this.state.jobStatus,
+        priority: Number(this.state.jobPriority),
+        link: this.linkChecker(this.state.jobLink),     
+      },      
+      contact: {
+        firstName: this.state.contactFirstName,
+        lastName: this.state.contactLastName,
+        title: this.state.contactTitle,
+        email: this.state.contactEmail,
+        phone: this.state.contactPhone,    
+      },
+      event: {
+        name: 'creation',
+        type: 'Entered',
+      },
+    }
+    
+    axios.post(`${config.apiServer}/job/manual`, jobPost)
+      .then(res => {
+        console.log('job added');
+        //redirect to dashboard
+      })
+      .catch(err => {
+        console.log('error adding job', err)
+        //user friendly error message
+      })
+  } 
+
+
+  //   axios.post('http://localhost:3002/company', { // this.state.companyPost
+  //     companyName: this.state.companyName,
+  //     companyDescription: this.state.companyDescription,
+  //     companyPhone: this.state.companyPhone,
+  //     companyAddress1: this.state.companyAddress1,
+  //     companyAddress2: this.state.companyAddress2,
+  //     companyCity: this.state.companyCity,
+  //     companyState: this.state.companyState,
+  //     companyZip: this.state.companyZip,
+  //   }).then((res) => {
+  //     console.log('company info posted!', res.data.insertId);
+  //     const companyId = res.data.insertId;
       
-      axios.post('http://localhost:3002/job', {// this.state.jobPost
-        companyId: res.data.insertId,
-        jobTitle: this.state.jobTitle,
-        jobDescription: this.state.jobDescription,
-        jobNotes: this.state.jobNotes,
-        jobSource: this.state.jobSource,
-        jobStatus: this.state.jobStatus,
-        jobPriority: parseInt(this.state.jobPriority, 10),
-        jobDeadline: this.state.jobDeadline._d,
-        jobLink: this.linkChecker(this.state.jobLink),
-      }).then((res) => {
-        console.log('job info posted!', res.data);
-        const jobId = res.data.insertId
-        console.log('after job post to db', jobId)
+  //     axios.post('http://localhost:3002/job', {// this.state.jobPost
+  //       companyId: res.data.insertId,
+  //       jobTitle: this.state.jobTitle,
+  //       jobDescription: this.state.jobDescription,
+  //       jobNotes: this.state.jobNotes,
+  //       jobSource: this.state.jobSource,
+  //       jobStatus: this.state.jobStatus,
+  //       jobPriority: parseInt(this.state.jobPriority, 10),
+  //       jobDeadline: this.state.jobDeadline._d,
+  //       jobLink: this.linkChecker(this.state.jobLink),
+  //     }).then((res) => {
+  //       console.log('job info posted!', res.data);
+  //       const jobId = res.data.insertId
+  //       console.log('after job post to db', jobId)
 
-        axios.post('http://localhost:3002/contact', {
-          companyId: companyId,
-          contactFirstName: this.state.contactFirstName,
-          contactLastName: this.state.contactLastName,
-          contactTitle: this.state.contactTitle,
-          contactEmail: this.state.contactEmail,
-          contactPhone: this.state.contactPhone,
-        }).then((res) => {
-          console.log('contact info posted!', res.data);
-          axios.post('http://localhost:3002/event', {
-            jobId: jobId,
-            contactId: res.data.insertId,
-            eventName: 'creation',
-            eventType: 'Entered',
-          })
-        });
-      });
+  //       axios.post('http://localhost:3002/contact', {
+  //         companyId: companyId,
+  //         contactFirstName: this.state.contactFirstName,
+  //         contactLastName: this.state.contactLastName,
+  //         contactTitle: this.state.contactTitle,
+  //         contactEmail: this.state.contactEmail,
+  //         contactPhone: this.state.contactPhone,
+  //       }).then((res) => {
+  //         console.log('contact info posted!', res.data);
+  //         axios.post('http://localhost:3002/event', {
+  //           jobId: jobId,
+  //           contactId: res.data.insertId,
+  //           eventName: 'creation',
+  //           eventType: 'Entered',
+  //         })
+  //       });
+  //     });
   
-    });
+  //   });
 
-  }
+  // }
 
   render() {
     return (
