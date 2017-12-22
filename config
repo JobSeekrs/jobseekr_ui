@@ -1,3 +1,0 @@
-export default {
-  apiServer: 'http://18.217.35.215:3002'
-}
