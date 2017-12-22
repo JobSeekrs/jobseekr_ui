@@ -125,3 +125,11 @@
 .selected{
   color: #0328e6 !important;
 }
+
+.btn-secondary {
+  margin-left: 10px;
+}
+
+.search-input {
+  padding-left: 10px;
+}

@@ -120,7 +120,7 @@ class SignupForm extends React.Component {
                   type="Submit"
                   id="btn-signup"
                   name="btn-signup"
-                  className="btn btn-primary "
+                  className="btn btn-job-form"
                 >Sign Up
                 </button>
                 <Link
