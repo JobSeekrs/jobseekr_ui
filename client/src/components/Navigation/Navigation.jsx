@@ -8,6 +8,7 @@ class Navigation extends React.Component {
   logout() {
     //going to redirect to landingpage once it is finished
     auth.logout();
+    localStorage.clear();
   }
 
   render() {

@@ -29,11 +29,6 @@ class Home extends React.Component {
       .catch(err => console.log(err));
   }
 
-  clearStore() {
-    console.log('clearing')
-    localStorage.clear();
-  }
-
   render() {
     return (
       <div className="container push-top">
@@ -54,7 +49,6 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <button onClick={this.clearStore}>Clear</button>
 
         <Switch>
           <Route path="/home/will-apply" render={() => <WillApply />} />

@@ -10,7 +10,7 @@ const InitialInfo = (props) => {
           <div className="job-details-headers">{props.jobDetails.job_title_name}</div>
         </div>
         <div className="col-md-6">
-          <h6 className="job-details-headers">Deadline</h6>
+          {/* <h6 className="job-details-headers">Deadline</h6> */}
           {/* <div>{props.jobDetails.deadline.split('T')[0]}</div> */}
         </div>
       </div>

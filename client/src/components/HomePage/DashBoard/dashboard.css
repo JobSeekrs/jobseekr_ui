@@ -71,6 +71,10 @@
   margin-bottom:0px;
 }
 
+.job_status {
+  margin-bottom: 10px;
+}
+
 .original_job_url:hover {
   text-decoration:none;
   cursor:pointer;

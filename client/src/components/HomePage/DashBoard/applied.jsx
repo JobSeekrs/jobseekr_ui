@@ -15,7 +15,6 @@ const Applied = (props) => {
             <th>Personal Rating</th>
             <th>Job Status</th>
             <th>Expanded Job Details</th>
-            <th>Deadline</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +30,6 @@ const Applied = (props) => {
                   <td>{job.rating}</td>
                   <td>{job.status}</td>
                   <td>Job expanded link</td>
-                  <td>{<TimeAgo date={job.deadline} /> }</td>
                 </tr>
               );
             }

@@ -21,14 +21,14 @@ const job = (props) => {
         </div>
         <div className="col-md-6">
           <div className="form-group">
-            <label>Deadline</label>
+            {/* <label>Deadline</label>
             <DatePicker
               className="form-control"
               id="jobDeadlineSelect"
               selected={props.jobDeadline}
               onChange={props.handleChange}
               dateFormat="LL"
-            />
+            /> */}
           </div>
         </div>
       </div>
