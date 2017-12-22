@@ -37,7 +37,7 @@ class App extends React.Component {
                     id="menu-toggle"
                     onClick={this.toggleClass}
                   >
-                  JobSeekr
+                  OurJobTracker.com
                   </button>
                 </div>
               </div>
