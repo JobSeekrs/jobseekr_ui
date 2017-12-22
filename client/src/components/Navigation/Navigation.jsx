@@ -24,12 +24,12 @@ class Navigation extends React.Component {
           <li>
             <Link to="/enter-a-job" href="/enter-a-job">Enter a Job</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/login" href="/login">Login</Link>
           </li>
           <li>
             <Link to="/signup" href="/signup">Sign Up</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/login" href="/login" onClick={this.logout}>Log Out</Link>
           </li>
