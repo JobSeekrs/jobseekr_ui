@@ -32,7 +32,7 @@ componentWillMount(){
     return (
       <div className="container push-top-sm">
         <div className="row justify-content-md-center text-center">
-          <div className="col-md-4 push-top">
+          <div className="col-md-4">
             <div className="left-align">
               <h4>{this.props.jobDetails.company_name} - {this.props.jobDetails.job_title_name}</h4>
               <h5>{this.props.jobDetails.status}</h5>
