@@ -1,11 +1,11 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
-import EditJobNotes from '../../components/HomePage/DashBoard/JobDescription/Notes';
+import EditJobNotes from '../../components/HomePage/DashBoard/JobDescription/notes';
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
-    jobDetailsAdditional: state.jobDetailsAdditional
-  }
+    jobDetailsAdditional: state.jobDetailsAdditional,
+  };
 }
 
 export default connect(mapStateToProps)(EditJobNotes);

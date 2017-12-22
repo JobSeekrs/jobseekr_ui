@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
 const FollowUp = (props) => {
   return (
