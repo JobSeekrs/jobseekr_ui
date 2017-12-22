@@ -15,6 +15,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
+    // auth.refresh();
     var context = this;
     axios.get(`${auth.serverUrl}/dashboard`)
       .then((res) => {

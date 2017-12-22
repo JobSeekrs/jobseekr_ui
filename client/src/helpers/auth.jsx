@@ -1,31 +1,30 @@
 import axios from 'axios';
 import config from '../../../config'
 
-const serverUrl = config.apiServer;
-let isLoggedIn = false;
-let token = null;
-let userid = null;
-
+const storage = sessionStorage;
 
 const auth = {
-  serverUrl: serverUrl,
+  serverUrl: config.apiServer,
 
-  login: (responseData) => {
+  refresh: () => {
+    axios.defaults.headers.common.token = storage.getItem('token');
+    axios.defaults.headers.common.userid = storage.getItem('userid');
+  },
+
+  login: (serverLoginResponse) => {
+    storage.setItem('token', serverLoginResponse.token);
+    storage.setItem('userid', serverLoginResponse.userid);
+    axios.defaults.headers.common.token = serverLoginResponse.token;
+    axios.defaults.headers.common.userid = serverLoginResponse.userid;
     console.log('YOU ARE LOGGED IN');
-    token = responseData.token;
-    userid = responseData.userid;
-    isLoggedIn = true;
-    axios.defaults.headers.common.token = token;
-    axios.defaults.headers.common.userid = userid;
   },
 
   logout: () => {
-    console.log('YOU JUST LOGGED OUT');
-    token = null;
-    userid = null;
-    isLoggedIn = false;
+    storage.removeItem('token');
+    storage.removeItem('userid');
     delete axios.defaults.headers.common.token;
     delete axios.defaults.headers.common.userid;
+    console.log('YOU ARE LOGGED OUT');
   },
 };
 export default auth;
