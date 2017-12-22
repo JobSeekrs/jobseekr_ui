@@ -14,9 +14,6 @@ class Navigation extends React.Component {
     return (
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
-          <li className="sidebar-brand">
-            <Link to="/home" href="/home">JobSeekrs</Link>
-          </li>
           <li>
             <Link to="/home" href="/home">Dashboard</Link>
           </li>

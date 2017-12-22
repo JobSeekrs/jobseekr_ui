@@ -6,9 +6,8 @@ import TimeAgo from 'react-timeago';
 const FollowUp = (props) => {
   return (
     <div className="container">
-      <h2>Follow Up</h2>
-      <table className="table">
-        <thead>
+      <table className="table table-striped">
+        <thead className="card-header">
           <tr>
             <th>Company</th>
             <th>Job Title</th>

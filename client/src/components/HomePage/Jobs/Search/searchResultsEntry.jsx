@@ -43,7 +43,7 @@ class searchResultsEntry extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container push-top-sm">
         {this.props.job.company.location ? (
           <div>
             <Link to="/search/details" href="/search/details">
@@ -54,7 +54,7 @@ class searchResultsEntry extends React.Component {
             <h6>{this.props.job.company.name}</h6>
             <h6>{this.props.job.company.location.name}</h6>
             <h6>{this.props.job.company.url}</h6>
-            <Checkbox  checked={this.props.job.checkbox} onChange={this.saveOrDeleteJob} />
+            <Checkbox checked={this.props.job.checkbox} onChange={this.saveOrDeleteJob} /><span>Save</span>
           </div>
         ): 
         <div>

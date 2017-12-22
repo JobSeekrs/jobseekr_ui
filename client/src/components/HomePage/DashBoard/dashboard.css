@@ -39,6 +39,7 @@
   font-family: 'Open Sans', sans-serif;
   font-weight:bold;
   margin-right: 5px;
+  font-size:20px;
 }
 
 .job_title {
@@ -53,9 +54,12 @@
 }
 
 .last_applied_text {
-  padding: 5px 15px 0px 15px;
+  padding: 11px 15px 16px 15px;
   font-style: italic;
   font-size:13px;
+  margin-bottom:0px;
+  background-color:#090068;
+  color:#fff;
 }
 
 .original_job_url, .personal_rating, .job_status, .job_deadline {
@@ -77,7 +81,8 @@
 }
 
 .job-detail-sections{
-  border: 1px solid #bbb;
+  border: 2px solid #bbb;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.15);
   padding:20px;
 }
 
@@ -87,4 +92,32 @@
 
 .job-details-headers {
   margin: 15px 0px 0px 10px;
+}
+
+.push-left-sm {
+  margin-left: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.job-tab-detail > a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+}
+
+.job-tab > a {
+  text-decoration: none;
+  color: #000;
+  font-size: 30px;
+}
+
+.job-tab > a:hover {
+  color: #1404be;
+}
+
+.selected{
+  color: #0328e6 !important;
 }

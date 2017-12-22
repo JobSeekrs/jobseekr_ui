@@ -65,7 +65,7 @@ class Notes extends Component {
         <p className="char-count">{this.state.jobNotesCharLeft} characters left</p>
         <button
           type="Submit"
-          className="btn btn-primary"
+          className="btn btn-job-form"
           data-toggle="modal"
           data-target="#myModal"
           onClick={this.handleSubmit}

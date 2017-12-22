@@ -34,11 +34,10 @@ class App extends React.Component {
               <div className="row no-gutters">
                 <div className="col-md-3">
                   <button
-                    className="btn btn-secondary"
                     id="menu-toggle"
                     onClick={this.toggleClass}
                   >
-                  Toggle Menu
+                  JobSeekr
                   </button>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, NavLink } from 'react-router-dom';
 import './dashboard.css';
 import Cards from '../../../containers/cardsContainer';
 import WillApply from '../../../containers/willApplyContainer';
@@ -40,17 +40,17 @@ class Home extends React.Component {
         <div className="row push-bottom">
           <div className="col-md-4">
             <div className="job-tab">
-              <Link to="/home/will-apply" href="/home/will-apply">Will Apply</Link>
+              <NavLink to="/home/will-apply" activeClassName="selected" href="/home/will-apply">Will Apply</NavLink>
             </div>
           </div>
           <div className="col-md-4">
             <div className="job-tab">
-              <Link to="/home/applied" href="/home/applied">Applied</Link>
+              <NavLink to="/home/applied" activeClassName="selected" href="/home/applied">Applied</NavLink>
             </div>
           </div>
           <div className="col-md-4">
             <div className="job-tab">
-              <Link to="/home/follow-up" href="/home/follow-up">Follow-Up</Link>
+              <NavLink to="/home/follow-up" activeClassName="selected" href="/home/follow-up">Follow-Up</NavLink>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import ActivityLog from '../../../../containers/activityLogContainer';
 // import Email from './Email/Index';
 import Info from './Info';
 import Notes from '../../../../containers/EditInfo/EditNotesPropsContainer';
-import Notifications from './notifications';
+// import Notifications from './notifications';
 import EditInfo from '../../../../containers/EditInfo/EditInfoPropsContainer';
 import auth from '../../../../helpers/auth';
 
@@ -42,29 +42,19 @@ componentWillMount(){
             </div>
           </div>
         </div>
-        <div className="row push-bottom-sm push-top-sm justify-content-md-center">
-          <div className="col-md-2">
-            <div className="job-tab">
+        <div className="row push-bottom-sm push-top-sm justify-content-md-center text-center">
+          <div className="col-md-4">
+            <div className="job-tab-detail">
               <Link to="/job-detail" href="/job-detail">Info</Link>
             </div>
           </div>
-          <div className="col-md-2">
-            <div className="job-tab">
+          <div className="col-md-4">
+            <div className="job-tab-detail">
               <Link to="/job-detail/notes" href="/job-detail/notes">Notes</Link>
             </div>
           </div>
-          <div className="col-md-2">
-            <div className="job-tab">
-              <Link to="/job-detail/notifications" href="/job-detail/notifications">Notifications</Link>
-            </div>
-          </div>
-          {/* <div className="col-md-2">
-            <div className="job-tab">
-              <Link to="/job-detail/email" href="/job-detail/email">Email</Link>
-            </div>
-          </div> */}
-          <div className="col-md-2">
-            <div className="job-tab">
+          <div className="col-md-4">
+            <div className="job-tab-detail">
               <Link to="/job-detail/activity-log" href="/job-detail/activity-log">Activity Log</Link>
             </div>
           </div>
@@ -73,7 +63,7 @@ componentWillMount(){
         <div className="job-detail-sections">
           <Switch>
             <Route path="/job-detail/notes" render={() => <Notes />} />
-            <Route path="/job-detail/notifications" render={() => <Notifications />} />
+            {/* <Route path="/job-detail/notifications" render={() => <Notifications />} /> */}
             {/* <Route path="/job-detail/email" render={() => <Email />} /> */}
             <Route path="/job-detail/activity-log" render={() => <ActivityLog jobId={this.props.jobDetailsAdditional.jobId}/>} />
             <Route path="/job-detail/edit-info" render={() => <EditInfo />} />

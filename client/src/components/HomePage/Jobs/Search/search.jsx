@@ -113,7 +113,7 @@ class search extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container text-center">
         <div>
           {this.state.toggle === false ?
           (

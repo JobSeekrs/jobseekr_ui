@@ -226,7 +226,7 @@ class Manual extends Component {
     return (
       <div>
         {this.state.added === false ? (
-          <div className="container">
+          <div className="container push-top">
             <form>
               <div id="accordion" role="tablist" aria-multiselectable="true">
                 <div className="card">
@@ -340,7 +340,7 @@ class Manual extends Component {
                 data-target="#myModal"
               >Submit
               </button> */}
-              <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.jobFormSubmit}>Submit</Link>
+              <Link to="/home" href="/home" className="btn btn-job-form push-top-sm" onClick={this.jobFormSubmit}>Submit</Link>
               {/* <div className="modal fade" id="myModal" role="dialog">
                 <div className="modal-dialog">
                   <div className="modal-content">

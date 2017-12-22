@@ -6,9 +6,8 @@ import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 const Applied = (props) => {
   return (
     <div className="container">
-      <h2>Applied</h2>
-      <table className="table">
-        <thead>
+      <table className="table table-striped">
+        <thead className="card-header">
           <tr>
             <th>Company</th>
             <th>Job Title</th>
