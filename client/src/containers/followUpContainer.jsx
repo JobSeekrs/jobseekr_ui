@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import followUp from '../components/HomePage/DashBoard/FollowUp';
+// import { bindActionCreators } from 'redux';
+import followUp from '../components/HomePage/DashBoard/followUp';
 
 function mapStateToProps(state) {
   return {

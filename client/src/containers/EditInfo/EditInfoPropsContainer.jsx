@@ -1,12 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
 import EditInfoDetails from '../../components/HomePage/DashBoard/JobDescription/EditInfo/EditInfo';
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     jobDetails: state.searchJobDetails,
-    jobDetailsAdditional: state.jobDetailsAdditional
-  }
+    jobDetailsAdditional: state.jobDetailsAdditional,
+  };
 }
 
 export default connect(mapStateToProps)(EditInfoDetails);

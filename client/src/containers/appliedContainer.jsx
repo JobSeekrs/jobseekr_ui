@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import applied from '../components/HomePage/DashBoard/Applied';
+// import { bindActionCreators } from 'redux';
+import applied from '../components/HomePage/DashBoard/applied';
 
 function mapStateToProps(state) {
   return {
