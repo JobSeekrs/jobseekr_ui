@@ -82,17 +82,21 @@ class ActivityLog extends React.Component {
           onChange={this.handleDateChange}
           dateFormat="LL"
         />
-        <h4>Title</h4>
-        <input value={this.state.value} onChange={this.handleTitleChange}/>
-        <h4>Type</h4>
+        <h4 className="push-top-sm">Title</h4>
+        <div className="row">
+          <div className="col-md-3">
+            <input className="form-control" value={this.state.value} onChange={this.handleTitleChange}/>
+          </div>
+        </div>
+        <h4 className="push-top-sm">Type</h4>
         <select value={this.state.option} onChange={this.handleTypeChange}>
           <option value='Phone Call'>Phone Call</option>
           <option value='Interview'>Interview</option>
           <option value='Coding Challenge'>Coding Challenge</option>
           <option value='Other'>Other</option>
         </select>
-        <button onClick={this.addEvent}>Submit</button>
-        <h4>Activity Log</h4>
+        <button className="btn btn-job-form push-left-sm  " onClick={this.addEvent}>Submit</button>
+        <h4 className="push-top-sm">Activity Log</h4>
         <MuiThemeProvider>
           <ActivityLogTable header={this.header} jobId={this.props.jobDetailsAdditional.jobId} />
         </MuiThemeProvider>

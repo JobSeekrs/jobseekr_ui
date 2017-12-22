@@ -47,10 +47,10 @@ class searchResults extends React.Component {
           <Redirect to="/home" />
         ) :
         <div>
-          <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} />
-          <button onClick={this.props.clicked}>Search For Jobs</button>
-        <button onClick={this.saveJobs}>Submit</button>
-        <div>
+          <input type="text" value={this.props.value} onKeyPress={this.props.handleKeyPress} onChange={this.props.handleChange} className="search-input" placeholder="Search" />
+          <button className="btn btn-job-form push-left-sm" onClick={this.props.clicked}>Search For Jobs</button>
+          <button className="btn btn-job-form push-left-sm" onClick={this.saveJobs}>Submit</button>
+        <div className="push-top">
           <div>
             {this.props.error === true ? (
               <h6 className='center'>Could not find anything</h6>

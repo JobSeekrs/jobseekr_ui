@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Job from './Job';
 import Company from './Company';
@@ -38,7 +37,6 @@ class Manual extends Component {
       contactTitle: '',
       contactEmail: '',
       contactPhone: '',
-      maxCount: 255,
       added: false,
     };
 
@@ -66,7 +64,7 @@ class Manual extends Component {
       [name]: value,
     });
 
-    console.log(this.state)
+    console.log(this.state);
 
     if (name === 'jobDescription') {
       this.jobDescriptionChar(e);
@@ -83,8 +81,7 @@ class Manual extends Component {
 
   jobDescriptionChar(e) {
     const charCount = e.target.value.length;
-    const maxCount = this.state.maxCount;
-    const charLength = maxCount - charCount;
+    const charLength = 255 - charCount;
 
     this.setState({
       jobDescriptionCharLeft: charLength,
@@ -93,8 +90,7 @@ class Manual extends Component {
 
   jobNotesChar(e) {
     const charCount = e.target.value.length;
-    const maxCount = this.state.maxCount;
-    const charLength = maxCount - charCount;
+    const charLength = 255 - charCount;
 
     this.setState({
       jobNotesCharLeft: charLength,
@@ -103,8 +99,7 @@ class Manual extends Component {
 
   companyDescriptionChar(e) {
     const charCount = e.target.value.length;
-    const maxCount = this.state.maxCount;
-    const charLength = maxCount - charCount;
+    const charLength = 255 - charCount;
 
     this.setState({
       companyDescriptionCharLeft: charLength,
@@ -115,12 +110,7 @@ class Manual extends Component {
     this.setState({
       jobDeadline: date,
     });
-    console.log(this.state.jobDeadline._d)
   }
-  
-  // removeModal() {    
-  //   // document.getElementbyClassName('modal-backdrop fade show').remove();
-  // }
 
   linkChecker(str) {
     if (str.includes('https://')) {
@@ -144,8 +134,8 @@ class Manual extends Component {
         address2: this.state.companyAddress2,
         city: this.state.companyCity,
         state: this.state.companyState,
-        zip: this.state.companyZip,     
-      },   
+        zip: this.state.companyZip,
+      },
       job: {
         name: this.state.jobTitle,
         description: this.state.jobDescription,
@@ -153,36 +143,35 @@ class Manual extends Component {
         source: this.state.jobSource,
         status: this.state.jobStatus,
         priority: Number(this.state.jobPriority),
-        link: this.linkChecker(this.state.jobLink),     
-      },      
+        deadline: moment(this.state.jobDeadline).format('YYYY-MM-DD HH:mm:ss'),
+        link: this.linkChecker(this.state.jobLink),
+      },
       contact: {
         firstName: this.state.contactFirstName,
         lastName: this.state.contactLastName,
         title: this.state.contactTitle,
         email: this.state.contactEmail,
-        phone: this.state.contactPhone,    
+        phone: this.state.contactPhone,
       },
       event: {
         name: 'creation',
         type: 'Entered',
       },
-    }
+    };
     
     axios.post(`${auth.serverUrl}/job/manual`, jobPost)
-      .then(res => {
+      .then((res) => {
         console.log('job added');
         this.setState({
           added: true,
         //redirect to dashboard
+        });
       })
-      .catch(err => {
-        console.log('error adding job', err)
+      .catch((err) => {
+        console.log('error adding job', err);
         //user friendly error message
-        })
-      })
-  } 
-
-
+      });
+  }
   //   axios.post('http://localhost:3002/company', { // this.state.companyPost
   //     companyName: this.state.companyName,
   //     companyDescription: this.state.companyDescription,
@@ -231,13 +220,13 @@ class Manual extends Component {
   
   //   });
 
-  // }
+  // };
 
   render() {
     return (
       <div>
         {this.state.added === false ? (
-          <div className="container">
+          <div className="container push-top">
             <form>
               <div id="accordion" role="tablist" aria-multiselectable="true">
                 <div className="card">
@@ -330,7 +319,7 @@ class Manual extends Component {
                   </div>
                 </div>
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label>Upload File</label>
                 <input
                   type="file"
@@ -343,7 +332,7 @@ class Manual extends Component {
                   className="form-text text-muted"
                 >Upload the resume and cover letter you used or plan to use for this job.
                 </small>
-              </div>
+              </div> */}
               {/* <button
                 type="Submit"
                 className="btn btn-job-form"
@@ -351,7 +340,7 @@ class Manual extends Component {
                 data-target="#myModal"
               >Submit
               </button> */}
-              <Link to="/home" href="/home" className="btn btn-job-form" onClick={this.jobFormSubmit}>Submit</Link>
+              <Link to="/home" href="/home" className="btn btn-job-form push-top-sm" onClick={this.jobFormSubmit}>Submit</Link>
               {/* <div className="modal fade" id="myModal" role="dialog">
                 <div className="modal-dialog">
                   <div className="modal-content">
@@ -376,8 +365,8 @@ class Manual extends Component {
             </form>
           </div>
         ) :
-        <Redirect to="/home" />
-      }
+          <Redirect to="/home" />
+        }
       </div>
     );
   }

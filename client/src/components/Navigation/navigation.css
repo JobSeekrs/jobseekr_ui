@@ -127,3 +127,17 @@
       margin-right: 0;
     }
   }
+
+  #menu-toggle {
+    font-weight: bold;
+    border: 0px;
+    font-size: 28px;
+    -webkit-font-smoothing: antialiased;
+    color: #0c0e5c;
+    background-color: transparent;
+    cursor:pointer;
+  }
+
+  #menu-toggle:focus {
+    outline: none;
+  }

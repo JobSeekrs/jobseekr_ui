@@ -10,9 +10,9 @@ class Info extends Component {
   render() {
     return (
       <div>
-        <Link to="/job-detail/edit-info" href="/job-detail/edit-info" className="btn btn-primary">
+        {/* <Link to="/job-detail/edit-info" href="/job-detail/edit-info" className="btn btn-primary">
           Edit
-        </Link>
+        </Link> */}
         <InitialInfo />
       </div>
     );

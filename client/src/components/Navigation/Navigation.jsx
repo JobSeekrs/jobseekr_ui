@@ -8,15 +8,13 @@ class Navigation extends React.Component {
   logout() {
     //going to redirect to landingpage once it is finished
     auth.logout();
+    localStorage.clear();
   }
 
   render() {
     return (
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
-          <li className="sidebar-brand">
-            <Link to="/home" href="/home">JobSeekrs</Link>
-          </li>
           <li>
             <Link to="/home" href="/home">Dashboard</Link>
           </li>
@@ -26,14 +24,14 @@ class Navigation extends React.Component {
           <li>
             <Link to="/enter-a-job" href="/enter-a-job">Enter a Job</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/login" href="/login">Login</Link>
           </li>
           <li>
             <Link to="/signup" href="/signup">Sign Up</Link>
-          </li>
-          <li className="sidebar-brand">
-            <button onClick={this.logout}>Log Out</button>
+          </li> */}
+          <li>
+            <Link to="/login" href="/login" onClick={this.logout}>Log Out</Link>
           </li>
         </ul>
       </div>

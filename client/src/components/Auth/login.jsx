@@ -88,7 +88,7 @@ class LoginForm extends React.Component {
                       type="Log In"
                       id="btn-login"
                       name="btn-login"
-                      className="btn btn-primary "
+                      className="btn btn-job-form"
                     >Log In
                     </button>
                     <Link

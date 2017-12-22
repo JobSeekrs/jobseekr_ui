@@ -6,9 +6,8 @@ import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 const WillApply = (props) => {
   return (
     <div className="container">
-      <h2>Will Apply</h2>
-      <table className="table">
-        <thead>
+      <table className="table table-striped">
+        <thead className="card-header">
           <tr>
             <th>Company</th>
             <th>Job Title</th>
@@ -16,7 +15,6 @@ const WillApply = (props) => {
             <th>Personal Rating</th>
             <th>Job Status</th>
             <th>Expanded Job Details</th>
-            <th>Deadline</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +30,6 @@ const WillApply = (props) => {
                   <td>{job.rating}</td>
                   <td>{job.status}</td>
                   <td>Job expanded link</td>
-                  <td>{<TimeAgo date={job.deadline} /> }</td>
                 </tr>
               );
             }
